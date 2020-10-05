@@ -226,11 +226,11 @@ namespace Brain
 			List<int> chosen_even = new List<int>();
 			List<int> chosen_odd = new List<int>();
 
-			for ( int i = 1; i < 37; i++ )
+			for ( int i = 1; i < 31; i++ )
 			{
 				chosen30[ i - 1 ] = MostAndLastPlayOrdering.Keys.ElementAt(i - 1);
 				int number = chosen30[ i - 1 ];
-				if(MostAndLastPlayOrdering[ number][1] > 1 && MostAndLastPlayOrdering[ number ][ 1 ] < 8 )
+				if(MostAndLastPlayOrdering[ number][1] > 0 && MostAndLastPlayOrdering[ number ][ 1 ] < 8 )
 				{
 					var item = listView1_PredChosen.Items.Add(number.ToString());
 					item.SubItems.Add(number.ToString());
@@ -310,7 +310,14 @@ namespace Brain
 				}
 
 				listView1_ActualPred.Items.Add(res.Substring(0, res.Length - 3));
-				
+
+			}
+			else if( chosen_even.Count%2  + chosen_odd.Count % 2 == 2)
+			{
+				int[] last2 = { chosen_odd[ chosen_odd.Count - 1 ], chosen_even[ chosen_even.Count - 1 ] };
+				last2 = last2.OrderBy(a => a).ToArray();
+				listView1_ActualPred.Items.Add($"{last2[0]} - {last2[1]}");
+
 			}
 		}
 
