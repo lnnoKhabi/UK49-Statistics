@@ -226,10 +226,16 @@ namespace Brain
 			List<int> chosen_even = new List<int>();
 			List<int> chosen_odd = new List<int>();
 
+			//MostAndLastPlayOrdering = MostAndLastPlayOrdering.OrderBy(dict => dict.Key).ToDictionary(a => a.Key, b => b.Value);
+
 			for ( int i = 1; i < 31; i++ )
 			{
 				chosen30[ i - 1 ] = MostAndLastPlayOrdering.Keys.ElementAt(i - 1);
-				int number = chosen30[ i - 1 ];
+			}
+			chosen30 = chosen30.OrderBy(a => a).ToArray();
+			foreach(int number in chosen30 ) 
+			{ 
+				//int number = chosen30[ i - 1 ];
 				if(MostAndLastPlayOrdering[ number][1] > 0 && MostAndLastPlayOrdering[ number ][ 1 ] < 8 )
 				{
 					var item = listView1_PredChosen.Items.Add(number.ToString());
