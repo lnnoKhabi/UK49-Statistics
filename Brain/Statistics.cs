@@ -222,21 +222,21 @@ namespace Brain
 			listView1_ActualPred.Items.Clear();
 			listView1_PredChosen.Items.Clear();
 			//the pessed dict has int key(played num) and int array(times num was played, days when num was last played)
-			int[] chosen30 = new int[ 30 ];
+			//int[] chosen_nums = new int[ 30 ];
 			List<int> chosen_even = new List<int>();
 			List<int> chosen_odd = new List<int>();
 
 			//MostAndLastPlayOrdering = MostAndLastPlayOrdering.OrderBy(dict => dict.Key).ToDictionary(a => a.Key, b => b.Value);
-
-			for ( int i = 1; i < 31; i++ )
-			{
-				chosen30[ i - 1 ] = MostAndLastPlayOrdering.Keys.ElementAt(i - 1);
-			}
-			chosen30 = chosen30.OrderBy(a => a).ToArray();
-			foreach(int number in chosen30 ) 
+			int[] chosen_nums = MostAndLastPlayOrdering.Keys.ToArray();
+			//for ( int i = 1; i < 31; i++ )
+			//{
+			//	chosen_nums[ i - 1 ] = MostAndLastPlayOrdering.Keys.ElementAt(i - 1);
+			//}
+			//chosen30 = chosen30.OrderBy(a => a).ToArray();
+			foreach(int number in chosen_nums ) 
 			{ 
 				//int number = chosen30[ i - 1 ];
-				if(MostAndLastPlayOrdering[ number][1] > 0 && MostAndLastPlayOrdering[ number ][ 1 ] < 8 )
+				if(MostAndLastPlayOrdering[ number][1] >= 0 && MostAndLastPlayOrdering[ number ][ 1 ] <= 7 )
 				{
 					var item = listView1_PredChosen.Items.Add(number.ToString());
 					item.SubItems.Add(number.ToString());
@@ -261,17 +261,44 @@ namespace Brain
 				}
 
 			}
+
 			int even_pick_count = chosen_even.Count / 2;
 			int odd_pick_count = chosen_odd.Count / 2;
 			int even_taken = 0;
 			int odd_taken = 0;
 
+			Random random = new Random();
+
+			List<int> even_clone = new List<int> (chosen_even); 
+			//Array.Copy(chosen_even.ToArray() ,even_clone.ToArray(),chosen_even.Count);
+
+			List<int> odd_clone = new List<int>(chosen_odd);
+			//Array.Copy(chosen_odd.ToArray(), odd_clone.ToArray(), chosen_odd.Count);
+
 			if (even_pick_count >= odd_pick_count )
 			{
+
+
 				//use odd count
 				for ( int i = 0; i < chosen_odd.Count-1; i+=2 )
 				{
-					int[] lst = { chosen_even[ i ] , chosen_even[ i + 1 ], chosen_odd[ i ], chosen_odd[ i + 1 ]};
+					int rand_even1 = random.Next(0, even_clone.Count - 1);
+					int rand_even2 = random.Next(0, even_clone.Count - 1);
+					int rand_odd1 = random.Next(0, odd_clone.Count - 1);
+					int rand_odd2 = random.Next(0, odd_clone.Count - 1);
+
+					int one = even_clone[ rand_even1 ];
+					int two = even_clone[ rand_even2 ];
+					int three = odd_clone[ rand_odd1 ];
+					int four = odd_clone[ rand_odd2 ];
+
+					even_clone.Remove(one);
+					even_clone.Remove(two);
+					odd_clone.Remove(three);
+					odd_clone.Remove(four);
+
+					//int[] lst = { chosen_even[ i ] , chosen_even[ i + 1 ], chosen_odd[ i ], chosen_odd[ i + 1 ]};
+					int[] lst = { one,two,three,four};
 					lst = lst.OrderBy(a => a).ToArray();
 					listView1_ActualPred.Items.Add($"{lst[0]} - {lst[ 1 ]} - {lst[ 2 ]} - {lst[ 3 ]}");
 					odd_taken += 2;
@@ -280,10 +307,25 @@ namespace Brain
 			}
 			else
 			{
+				int rand_even1 = random.Next(0, even_clone.Count - 1);
+				int rand_even2 = random.Next(0, even_clone.Count - 1);
+				int rand_odd1 = random.Next(0, odd_clone.Count - 1);
+				int rand_odd2 = random.Next(0, odd_clone.Count - 1);
+
+				int one = even_clone[ rand_even1 ];
+				int two = even_clone[ rand_even2 ];
+				int three = odd_clone[ rand_odd1 ];
+				int four = odd_clone[ rand_odd2 ];
+
+				even_clone.Remove(one);
+				even_clone.Remove(two);
+				odd_clone.Remove(three);
+				odd_clone.Remove(four);
 				//use even count
 				for ( int i = 0; i < chosen_even.Count - 1; i+=2 )
 				{
-					int[] lst = { chosen_even[ i ], chosen_even[ i + 1 ], chosen_odd[ i ], chosen_odd[ i + 1 ] };
+					//int[] lst = { chosen_even[ i ], chosen_even[ i + 1 ], chosen_odd[ i ], chosen_odd[ i + 1 ] };
+					int[] lst = { one,two,three,four};
 					lst = lst.OrderBy(a => a).ToArray();
 					listView1_ActualPred.Items.Add($"{lst[ 0 ]} - {lst[ 1 ]} - {lst[ 2 ]} - {lst[ 3 ]}");
 
@@ -296,27 +338,37 @@ namespace Brain
 			{
 				int even_left = chosen_even.Count - even_taken;
 				int odd_left = chosen_odd.Count - odd_taken;
-				List<int> lst = new List<int>( even_left + odd_left );
-
-				for ( int i = 0; i < even_left; i++ )
+				if ( Math.Max(even_left, odd_left) - Math.Min(even_left, odd_left) <= 4 )
 				{
-					lst.Add(chosen_even[ chosen_even.Count - ( i + 1 ) ]);
-					//res += $"{chosen_even[ chosen_even.Count - (i+1)]} - ";
-				}
-				for ( int i = 0; i < odd_left; i++ )
-				{
-					lst.Add(chosen_odd[ chosen_odd.Count - ( i + 1 ) ]);
-					//res += $"{chosen_odd[ chosen_odd.Count - (i+1)]} - ";
-				}
-				lst.Sort();
-				string res = "";
-				for ( int i = 0; i < lst.Count; i++ )
-				{
-					res += lst[ i ] + " - ";
-				}
+					List<int> lst = new List<int>(even_left + odd_left);
 
-				listView1_ActualPred.Items.Add(res.Substring(0, res.Length - 3));
+					for ( int i = 0; i < even_left; i++ )
+					{
+						int index = random.Next(0, even_clone.Count - 1);
+						int pickd_n = even_clone[ index ];
+						even_clone.Remove(pickd_n);
+						lst.Add(pickd_n);
+						//lst.Add(chosen_even[ chosen_even.Count - ( i + 1 ) ]);
+						//res += $"{chosen_even[ chosen_even.Count - (i+1)]} - ";
+					}
+					for ( int i = 0; i < odd_left; i++ )
+					{
+						int index = random.Next(0, odd_clone.Count - 1);
+						int pickd_n = odd_clone[ index ];
+						odd_clone.Remove(pickd_n);
+						lst.Add(pickd_n);
+						//lst.Add(chosen_odd[ chosen_odd.Count - ( i + 1 ) ]);
+						//res += $"{chosen_odd[ chosen_odd.Count - (i+1)]} - ";
+					}
+					lst.Sort();
+					string res = "";
+					for ( int i = 0; i < lst.Count; i++ )
+					{
+						res += lst[ i ] + " - ";
+					}
 
+					listView1_ActualPred.Items.Add(res.Substring(0, res.Length - 3));
+				}
 			}
 			else if( chosen_even.Count%2  + chosen_odd.Count % 2 == 2)
 			{
