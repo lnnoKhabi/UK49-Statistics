@@ -4516,5 +4516,77 @@ namespace Brain
             }
             success = success==null? "true":"false";
         }
+
+        private void PossibleFives()
+		{
+            if ( date_AND_combination.Count > 0 )
+            {
+                //BeginInvoke( ListViewItem lvi = listView1__Output_Info.Items.Add($"0 of 1 906 884"));
+                //BeginInvoke(( Myd ) delegate { ListViewItem lvi = listView1__Output_Info.Items.Add($"{DateTime.Now.ToShortDateString()}");
+                //lvi.SubItems.Add($"0 of 1 906 884"); });
+
+                using ( StreamWriter sw = new StreamWriter("./PossibleFives.txt", false) )
+                {
+                    int count = 0;
+                    int bcount = 0;
+                    for ( int c = 1; c < 46; c++ )
+                    {
+                        for ( int d = c + 1; d < 47; d++ )
+                        {
+                            for ( int e = d + 1; e < 48; e++ )
+                            {
+                                for ( int f = e + 1; f < 49; f++ )
+                                {
+                                    for ( int g = f + 1; g < 50; g++ )
+                                    {
+                                        HashSet<int> hset = new HashSet<int>();
+                                        int[] nums = { c, d, e, f, g };
+                                        for ( int i = 1; i < 5; i++ )
+                                        {
+                                            hset.Add(nums[ i ] - nums[ i - 1 ]);
+                                        }
+                                            int PlayCount = date_AND_combination.Values.Where(lst => lst.Contains(nums[ 0 ].ToString()) && lst.Contains(nums[ 1 ].ToString()) && lst.Contains(nums[ 2 ].ToString()) && lst.Contains(nums[ 3 ].ToString()) && lst.Contains(nums[ 4 ].ToString())).Count();
+                                        if ( PlayCount >0)
+                                        {
+
+                                            count++;
+                                            string pcount = PlayCount > 0 ? $"{PlayCount} time(s)" : "";
+                                            sw.WriteLine($"{count}. {nums[ 0 ]} - {nums[ 1 ]} - {nums[ 2 ]} - {nums[ 3 ]} - {nums[ 4 ]}\t{pcount}");
+                                        }
+                                        bcount++;
+                                        //BeginInvoke(lvi.Text = $"{bcount} of 1 906 884") ;
+                                        //BeginInvoke(( Myd ) delegate { lvi. = $"{bcount} of 1 906 884"; });
+
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                    }
+                }
+            }
+            else
+            {
+                Notify("Please import some results.");
+            }
+        }
+
+		private async void savePossibleFivesToolStripMenuItem_Click( object sender, EventArgs ev )
+		{
+            Notify("Saving Possible Five Combs...");
+
+            //search asynchronously
+            Task task = new Task(PossibleFives);
+            //Task<bool> task = new Task<bool>(arg => { return PossibleFives(( string ) arg); }, filename);
+            task.Start();
+            await task;
+            if ( task.IsCompleted )
+            {
+                Notify("Task completed.");
+            }
+            
+        }
 	}
 }

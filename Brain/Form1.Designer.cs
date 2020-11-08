@@ -113,6 +113,8 @@
 			this.columnHeader5_State = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+			this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+			this.savePossibleFivesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel2_boxes.SuspendLayout();
 			this.menuStrip1_Toolbar.SuspendLayout();
 			this.tabControl1_with_listviews.SuspendLayout();
@@ -434,28 +436,28 @@
 			// searchToolStripMenuItem1
 			// 
 			this.searchToolStripMenuItem1.Name = "searchToolStripMenuItem1";
-			this.searchToolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
+			this.searchToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
 			this.searchToolStripMenuItem1.Text = "Search";
 			this.searchToolStripMenuItem1.Click += new System.EventHandler(this.searchToolStripMenuItem1_Click);
 			// 
 			// readerToolStripMenuItem
 			// 
 			this.readerToolStripMenuItem.Name = "readerToolStripMenuItem";
-			this.readerToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+			this.readerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.readerToolStripMenuItem.Text = "Reader";
 			this.readerToolStripMenuItem.Click += new System.EventHandler(this.readerToolStripMenuItem_Click);
 			// 
 			// sToolStripMenuItem
 			// 
 			this.sToolStripMenuItem.Name = "sToolStripMenuItem";
-			this.sToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+			this.sToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.sToolStripMenuItem.Text = "Statistics";
 			this.sToolStripMenuItem.Click += new System.EventHandler(this.sToolStripMenuItem_Click);
 			// 
 			// dreamGuideToolStripMenuItem
 			// 
 			this.dreamGuideToolStripMenuItem.Name = "dreamGuideToolStripMenuItem";
-			this.dreamGuideToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+			this.dreamGuideToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.dreamGuideToolStripMenuItem.Text = "Dream Guide";
 			this.dreamGuideToolStripMenuItem.Click += new System.EventHandler(this.dreamGuideToolStripMenuItem_Click);
 			// 
@@ -465,7 +467,9 @@
             this.correspondingNumbersToolStripMenuItem,
             this.bonusFrequencyToolStripMenuItem,
             this.removeTypedFrom85mToolStripMenuItem,
-            this.cyleToolStripMenuItem});
+            this.cyleToolStripMenuItem,
+            this.toolStripSeparator9,
+            this.savePossibleFivesToolStripMenuItem});
 			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
 			this.toolStripMenuItem1.Size = new System.Drawing.Size(42, 20);
 			this.toolStripMenuItem1.Text = "Find";
@@ -912,6 +916,19 @@
 			// 
 			this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1_Toolbar);
 			// 
+			// toolStripSeparator9
+			// 
+			this.toolStripSeparator9.Name = "toolStripSeparator9";
+			this.toolStripSeparator9.Size = new System.Drawing.Size(202, 6);
+			// 
+			// savePossibleFivesToolStripMenuItem
+			// 
+			this.savePossibleFivesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+			this.savePossibleFivesToolStripMenuItem.Name = "savePossibleFivesToolStripMenuItem";
+			this.savePossibleFivesToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
+			this.savePossibleFivesToolStripMenuItem.Text = "Save Possible Fives";
+			this.savePossibleFivesToolStripMenuItem.Click += new System.EventHandler(this.savePossibleFivesToolStripMenuItem_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1037,6 +1054,8 @@
 		private System.Windows.Forms.ToolStripMenuItem excludeBonusesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem dreamGuideToolStripMenuItem;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+		private System.Windows.Forms.ToolStripMenuItem savePossibleFivesToolStripMenuItem;
 	}
 }
 
