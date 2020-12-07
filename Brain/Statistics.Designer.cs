@@ -59,18 +59,18 @@
 			this.tabPage3 = new System.Windows.Forms.TabPage();
 			this.listView1_Cycle = new System.Windows.Forms.ListView();
 			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.statusStrip1_info = new System.Windows.Forms.StatusStrip();
-			this.toolStripStatusLabel1_info_label = new System.Windows.Forms.ToolStripStatusLabel();
-			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
 			this.tabPage4 = new System.Windows.Forms.TabPage();
-			this.listView1_PredChosen = new System.Windows.Forms.ListView();
-			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tableLayoutPanel2_prediction = new System.Windows.Forms.TableLayoutPanel();
 			this.listView1_ActualPred = new System.Windows.Forms.ListView();
 			this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.listView1_PredChosen = new System.Windows.Forms.ListView();
+			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.statusStrip1_info = new System.Windows.Forms.StatusStrip();
+			this.toolStripStatusLabel1_info_label = new System.Windows.Forms.ToolStripStatusLabel();
+			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.tabControl1.SuspendLayout();
@@ -78,12 +78,12 @@
 			this.tabPage2.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.chart2_all_freq)).BeginInit();
 			this.tabPage3.SuspendLayout();
+			this.tabPage4.SuspendLayout();
+			this.tableLayoutPanel2_prediction.SuspendLayout();
 			this.statusStrip1_info.SuspendLayout();
 			this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
 			this.toolStripContainer1.ContentPanel.SuspendLayout();
 			this.toolStripContainer1.SuspendLayout();
-			this.tabPage4.SuspendLayout();
-			this.tableLayoutPanel2_prediction.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -469,6 +469,92 @@
 			this.columnHeader6.Text = "Cycle Info";
 			this.columnHeader6.Width = 616;
 			// 
+			// tabPage4
+			// 
+			this.tabPage4.BackColor = System.Drawing.Color.Transparent;
+			this.tabPage4.Controls.Add(this.tableLayoutPanel2_prediction);
+			this.tabPage4.ForeColor = System.Drawing.SystemColors.ControlText;
+			this.tabPage4.Location = new System.Drawing.Point(4, 22);
+			this.tabPage4.Name = "tabPage4";
+			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+			this.tabPage4.Size = new System.Drawing.Size(720, 268);
+			this.tabPage4.TabIndex = 6;
+			this.tabPage4.Text = "Prediction";
+			// 
+			// tableLayoutPanel2_prediction
+			// 
+			this.tableLayoutPanel2_prediction.ColumnCount = 2;
+			this.tableLayoutPanel2_prediction.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.92717F));
+			this.tableLayoutPanel2_prediction.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.07283F));
+			this.tableLayoutPanel2_prediction.Controls.Add(this.listView1_ActualPred, 1, 0);
+			this.tableLayoutPanel2_prediction.Controls.Add(this.listView1_PredChosen, 0, 0);
+			this.tableLayoutPanel2_prediction.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel2_prediction.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel2_prediction.Name = "tableLayoutPanel2_prediction";
+			this.tableLayoutPanel2_prediction.RowCount = 1;
+			this.tableLayoutPanel2_prediction.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel2_prediction.Size = new System.Drawing.Size(714, 262);
+			this.tableLayoutPanel2_prediction.TabIndex = 1;
+			// 
+			// listView1_ActualPred
+			// 
+			this.listView1_ActualPred.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader10});
+			this.listView1_ActualPred.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listView1_ActualPred.ForeColor = System.Drawing.Color.RoyalBlue;
+			this.listView1_ActualPred.FullRowSelect = true;
+			this.listView1_ActualPred.GridLines = true;
+			this.listView1_ActualPred.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+			this.listView1_ActualPred.HideSelection = false;
+			this.listView1_ActualPred.Location = new System.Drawing.Point(487, 3);
+			this.listView1_ActualPred.Name = "listView1_ActualPred";
+			this.listView1_ActualPred.Size = new System.Drawing.Size(224, 256);
+			this.listView1_ActualPred.TabIndex = 1;
+			this.listView1_ActualPred.UseCompatibleStateImageBehavior = false;
+			this.listView1_ActualPred.View = System.Windows.Forms.View.Details;
+			// 
+			// columnHeader10
+			// 
+			this.columnHeader10.Text = "Preditions";
+			this.columnHeader10.Width = 203;
+			// 
+			// listView1_PredChosen
+			// 
+			this.listView1_PredChosen.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader12,
+            this.columnHeader13});
+			this.listView1_PredChosen.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listView1_PredChosen.FullRowSelect = true;
+			this.listView1_PredChosen.GridLines = true;
+			this.listView1_PredChosen.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+			this.listView1_PredChosen.HideSelection = false;
+			this.listView1_PredChosen.Location = new System.Drawing.Point(3, 3);
+			this.listView1_PredChosen.Name = "listView1_PredChosen";
+			this.listView1_PredChosen.Size = new System.Drawing.Size(478, 256);
+			this.listView1_PredChosen.TabIndex = 0;
+			this.listView1_PredChosen.UseCompatibleStateImageBehavior = false;
+			this.listView1_PredChosen.View = System.Windows.Forms.View.Details;
+			// 
+			// columnHeader8
+			// 
+			this.columnHeader8.Text = "Chosen 30";
+			this.columnHeader8.Width = 68;
+			// 
+			// columnHeader9
+			// 
+			this.columnHeader9.Text = "Within Days Range  (2-5)";
+			this.columnHeader9.Width = 139;
+			// 
+			// columnHeader12
+			// 
+			this.columnHeader12.Text = "Even";
+			// 
+			// columnHeader13
+			// 
+			this.columnHeader13.Text = "Odd";
+			// 
 			// statusStrip1_info
 			// 
 			this.statusStrip1_info.Dock = System.Windows.Forms.DockStyle.None;
@@ -513,92 +599,6 @@
 			this.toolStripContainer1.Text = "toolStripContainer1";
 			this.toolStripContainer1.TopToolStripPanelVisible = false;
 			// 
-			// tabPage4
-			// 
-			this.tabPage4.BackColor = System.Drawing.Color.Transparent;
-			this.tabPage4.Controls.Add(this.tableLayoutPanel2_prediction);
-			this.tabPage4.ForeColor = System.Drawing.SystemColors.ControlText;
-			this.tabPage4.Location = new System.Drawing.Point(4, 22);
-			this.tabPage4.Name = "tabPage4";
-			this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-			this.tabPage4.Size = new System.Drawing.Size(720, 268);
-			this.tabPage4.TabIndex = 6;
-			this.tabPage4.Text = "Prediction";
-			// 
-			// listView1_PredChosen
-			// 
-			this.listView1_PredChosen.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader8,
-            this.columnHeader9,
-            this.columnHeader12,
-            this.columnHeader13});
-			this.listView1_PredChosen.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView1_PredChosen.FullRowSelect = true;
-			this.listView1_PredChosen.GridLines = true;
-			this.listView1_PredChosen.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-			this.listView1_PredChosen.HideSelection = false;
-			this.listView1_PredChosen.Location = new System.Drawing.Point(3, 3);
-			this.listView1_PredChosen.Name = "listView1_PredChosen";
-			this.listView1_PredChosen.Size = new System.Drawing.Size(478, 256);
-			this.listView1_PredChosen.TabIndex = 0;
-			this.listView1_PredChosen.UseCompatibleStateImageBehavior = false;
-			this.listView1_PredChosen.View = System.Windows.Forms.View.Details;
-			// 
-			// columnHeader8
-			// 
-			this.columnHeader8.Text = "Chosen 30";
-			this.columnHeader8.Width = 68;
-			// 
-			// columnHeader9
-			// 
-			this.columnHeader9.Text = "Within Days Range  (2-5)";
-			this.columnHeader9.Width = 139;
-			// 
-			// tableLayoutPanel2_prediction
-			// 
-			this.tableLayoutPanel2_prediction.ColumnCount = 2;
-			this.tableLayoutPanel2_prediction.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 67.92717F));
-			this.tableLayoutPanel2_prediction.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.07283F));
-			this.tableLayoutPanel2_prediction.Controls.Add(this.listView1_ActualPred, 1, 0);
-			this.tableLayoutPanel2_prediction.Controls.Add(this.listView1_PredChosen, 0, 0);
-			this.tableLayoutPanel2_prediction.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2_prediction.Location = new System.Drawing.Point(3, 3);
-			this.tableLayoutPanel2_prediction.Name = "tableLayoutPanel2_prediction";
-			this.tableLayoutPanel2_prediction.RowCount = 1;
-			this.tableLayoutPanel2_prediction.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2_prediction.Size = new System.Drawing.Size(714, 262);
-			this.tableLayoutPanel2_prediction.TabIndex = 1;
-			// 
-			// listView1_ActualPred
-			// 
-			this.listView1_ActualPred.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader10});
-			this.listView1_ActualPred.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.listView1_ActualPred.ForeColor = System.Drawing.Color.RoyalBlue;
-			this.listView1_ActualPred.FullRowSelect = true;
-			this.listView1_ActualPred.GridLines = true;
-			this.listView1_ActualPred.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-			this.listView1_ActualPred.HideSelection = false;
-			this.listView1_ActualPred.Location = new System.Drawing.Point(487, 3);
-			this.listView1_ActualPred.Name = "listView1_ActualPred";
-			this.listView1_ActualPred.Size = new System.Drawing.Size(224, 256);
-			this.listView1_ActualPred.TabIndex = 1;
-			this.listView1_ActualPred.UseCompatibleStateImageBehavior = false;
-			this.listView1_ActualPred.View = System.Windows.Forms.View.Details;
-			// 
-			// columnHeader10
-			// 
-			this.columnHeader10.Text = "Preditions";
-			this.columnHeader10.Width = 203;
-			// 
-			// columnHeader12
-			// 
-			this.columnHeader12.Text = "Even";
-			// 
-			// columnHeader13
-			// 
-			this.columnHeader13.Text = "Odd";
-			// 
 			// Statistics
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -619,6 +619,8 @@
 			this.tabPage2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.chart2_all_freq)).EndInit();
 			this.tabPage3.ResumeLayout(false);
+			this.tabPage4.ResumeLayout(false);
+			this.tableLayoutPanel2_prediction.ResumeLayout(false);
 			this.statusStrip1_info.ResumeLayout(false);
 			this.statusStrip1_info.PerformLayout();
 			this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
@@ -626,8 +628,6 @@
 			this.toolStripContainer1.ContentPanel.ResumeLayout(false);
 			this.toolStripContainer1.ResumeLayout(false);
 			this.toolStripContainer1.PerformLayout();
-			this.tabPage4.ResumeLayout(false);
-			this.tableLayoutPanel2_prediction.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
