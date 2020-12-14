@@ -11,6 +11,9 @@ using System.IO;
 using System.Globalization;
 using HtmlAgilityPack;
 using System.Net.Http;
+using System.Configuration;
+using System.Data.SQLite;
+using Dapper;
 
 namespace Brain
 {
@@ -1257,67 +1260,76 @@ namespace Brain
         {
             try
             {
-                string st = state == "L" ? "Lunchtime" : "Teatime";
-
-                OpenFileDialog ofd = new OpenFileDialog();
-                ofd.Title = $"Select {st} file.";
-                ofd.Multiselect = false;
-                ofd.Filter = "Text files (*.txt)|*.txt";
-                ofd.ShowDialog();
-                string filename = ofd.FileName;
-                ImportedFile = filename;
-                ofd.Dispose();
-                if ( !string.IsNullOrEmpty(filename) )
+                List<ResultsModel> results = ImportFromDatabase();
+                if(results.Count <= 0 ) 
                 {
-                    Task task = new Task(arg => { ShowProgress(( bool ) arg); }, true);
-                    task.Start();
+                    Notify("Database is empty. Importing from text file. This will take a while.");
+                    string st = state == "L" ? "Lunchtime" : "Teatime";
 
-                    Cursor = Cursors.No;
-
-                    TextBox[] boxes = { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7 };
-                    using ( StreamReader sr = new StreamReader(filename) )
+                    OpenFileDialog ofd = new OpenFileDialog();
+                    ofd.Title = $"Select {st} file.";
+                    ofd.Multiselect = false;
+                    ofd.Filter = "Text files (*.txt)|*.txt";
+                    ofd.ShowDialog();
+                    string filename = ofd.FileName;
+                    ImportedFile = filename;
+                    ofd.Dispose();
+                    if ( !string.IsNullOrEmpty(filename) )
                     {
-                        
-                        string str = "";
-                        while ( ( str = sr.ReadLine() ) != null )
+                        //Task task = new Task(arg => { ShowProgress(( bool ) arg); }, true);
+                        //task.Start();
+
+                        //Cursor = Cursors.No;
+
+                        TextBox[] boxes = { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7 };
+                        using ( StreamReader sr = new StreamReader(filename) )
                         {
-                            string[] data = str.Split(',');
 
-                            dateTimePicker1_Date.Value = DateTime.Parse(data[ 0 ]);
-                            boxes[ 0 ].Text = data[ 1 ];
+                            string str = "";
+                            while ( ( str = sr.ReadLine() ) != null )
+                            {
+                                string[] data = str.Split(',');
 
-                            boxes[ 1 ].Text = data[ 2 ];
-                            boxes[ 2 ].Text = data[ 3 ];
-                            boxes[ 3 ].Text = data[ 4 ];
-                            boxes[ 4 ].Text = data[ 5 ];
-                            boxes[ 5 ].Text = data[ 6 ];
-                            boxes[ 6 ].Text = data[ 7 ];
-                            if ( button1_Add.Enabled )
-                                AddNumbers();
-                            else Notify($"Error on {data[ 0 ]}. Numbers not added.");
+                                dateTimePicker1_Date.Value = DateTime.Parse(data[ 0 ]);
+                                boxes[ 0 ].Text = data[ 1 ];
+
+                                boxes[ 1 ].Text = data[ 2 ];
+                                boxes[ 2 ].Text = data[ 3 ];
+                                boxes[ 3 ].Text = data[ 4 ];
+                                boxes[ 4 ].Text = data[ 5 ];
+                                boxes[ 5 ].Text = data[ 6 ];
+                                boxes[ 6 ].Text = data[ 7 ];
+                                if ( button1_Add.Enabled )
+                                    AddNumbers();
+                                else Notify($"Error on {data[ 0 ]}. Numbers not added.");
+                            }
                         }
+                        dateTimePicker1_Date.Value = dateTimePicker1_Date.Value.AddDays(1);
+
+                        listView1_Date_and_Numbers.Items[ listView1_Date_and_Numbers.Items.Count - 1 ].EnsureVisible();
+					}
+                    else
+				    {
+                        //Cursor = Cursors.Default;
+                        return false;
                     }
-                    dateTimePicker1_Date.Value = dateTimePicker1_Date.Value.AddDays(1);
-
-                    listView1_Date_and_Numbers.Items[listView1_Date_and_Numbers.Items.Count-1].EnsureVisible();
-
+					
                 }
-                else
+				else
 				{
-                    Cursor = Cursors.Default;
-                    return false;
+                    AddNumbers(results);
                 }
             }
             catch ( Exception error )
             {
-                ShowProgress(false);
-                Cursor = Cursors.Default;
+                //ShowProgress(false);
+                //Cursor = Cursors.Default;
 
                 MessageBox.Show(error.Message, "Error Importing", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            ShowProgress(false);
-            Cursor = Cursors.Default;
+            //ShowProgress(false);
+            //Cursor = Cursors.Default;
 
             return true;
         }
@@ -2231,7 +2243,7 @@ namespace Brain
             dreamguide_form.Show();
         }
         //*************************************************************************************************************************************************************************
-
+        //takes numbers from text file
         private  void AddNumbers()
         {
             //array with all the textboxes
@@ -2297,12 +2309,6 @@ namespace Brain
                     AddedItem.SubItems.Add(state.ToUpper());
 
 					//add index in 85m
-					//List<int> l = Array.ConvertAll(CurrentNumbers.ToArray(), a => int.Parse(a)).ToList();
-					//l.Sort();
-					//Task<int> task = new Task<int>(arg => { return Index_For_One_Comb(( string ) arg); }, $"{CurrentNumbers[ 0 ]}-{CurrentNumbers[ 1 ]}-{CurrentNumbers[ 2 ]}-{CurrentNumbers[ 3 ]}-{CurrentNumbers[ 4 ]}-{CurrentNumbers[ 5 ]}-{CurrentNumbers[ 6 ]}");
-					//task.Start();
-					//await task;
-					//int ind = task.Result;
 					int ind = Index_For_One_Comb($"{CurrentNumbers[ 0 ]}-{CurrentNumbers[ 1 ]}-{CurrentNumbers[ 2 ]}-{CurrentNumbers[ 3 ]}-{CurrentNumbers[ 4 ]}-{CurrentNumbers[ 5 ]}-{CurrentNumbers[ 6 ]}");
 
 					//add tag
@@ -2313,6 +2319,18 @@ namespace Brain
                         Indexes_85m.Add($"{CurrentNumbers[ 0 ]}-{CurrentNumbers[ 1 ]}-{CurrentNumbers[ 2 ]}-{CurrentNumbers[ 3 ]}-{CurrentNumbers[ 4 ]}-{CurrentNumbers[ 5 ]}-{CurrentNumbers[ 6 ]}", ind);
 					}
 					catch { }
+
+                    ResultsModel r = new ResultsModel();
+                    r.date = dateTimePicker1_Date.Value.ToShortDateString();
+                    r.first = int.Parse(textBox1.Text);
+                    r.second = int.Parse(textBox2.Text);
+                    r.third = int.Parse(textBox3.Text);
+                    r.forth = int.Parse(textBox4.Text);
+                    r.fifth = int.Parse(textBox5.Text);
+                    r.sixth = int.Parse(textBox6.Text);
+                    r.bonus = int.Parse(textBox7.Text);
+                    r.position = ind;
+                    SaveToDatabase(r);
 
                     //add items to unsorted list
                     string p_30 = ind % 30 == 0 ? "30" : ( ind % 30 ).ToString();
@@ -2347,6 +2365,99 @@ namespace Brain
             }
             textBox1.Select();
             button1_Add.Enabled = false;
+        }
+
+        //takes numbers from database
+        private void AddNumbers(List<ResultsModel> results)
+        {
+            //array with all the textboxes
+            try
+            {
+                foreach ( ResultsModel result in results )
+                {
+                    bool CanAdd = true;
+                    List<int> CurrentNumbers = new List<int> {result.first, result.second, result.third, result.forth, result.fifth, result.sixth, result.bonus };
+                    CurrentNumbers.Sort();
+                    string NumbersString = $"{CurrentNumbers[ 0 ]}-{CurrentNumbers[ 1 ]}-{CurrentNumbers[ 2 ]}-{CurrentNumbers[ 3 ]}-{CurrentNumbers[ 4 ]}-{CurrentNumbers[ 5 ]}-{CurrentNumbers[ 6 ]}";
+
+                    //check if numbers already exist
+                    if ( !CombTypedAsStrings.Contains(NumbersString) )
+                    {
+                        CombTypedAsStrings.Add(NumbersString);
+                    }
+                    else
+                    {
+                        DialogResult dr = MessageBox.Show($"Numbers on [{dateTimePicker1_Date.Value.Day} {ConvertToMonth(dateTimePicker1_Date.Value.Month)} {dateTimePicker1_Date.Value.Year}] were previously added. Do you want to add them again?", "Duplicate Numbers", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if ( dr == DialogResult.No )
+                        {
+                            CanAdd = false;
+                        }
+                    }
+
+                    if ( CanAdd )
+                    {
+                        DateTime theDate = DateTime.Parse(result.date);
+                        //handle squared number
+                        WhereIsSquaredNumber = CurrentNumbers.IndexOf(result.bonus);
+
+                        //add date to items
+                        ListViewItem AddedItem = listView1_Date_and_Numbers.Items.Add(result.date);
+                        MostRecentDate = theDate > MostRecentDate ? theDate : MostRecentDate;
+                        //add item to group
+                        string NewGroupHeader = $"{ ConvertToMonth(theDate.Month)}, {theDate.Year}";
+
+                        AddedItem.Group = listView1_Date_and_Numbers.Groups[ NewGroupHeader ] == null ? listView1_Date_and_Numbers.Groups.Add(NewGroupHeader, NewGroupHeader) : listView1_Date_and_Numbers.Groups[ NewGroupHeader ];
+
+                        AddedItem.Group.Tag = theDate.Month;
+
+                        AddedItem.Name = NewGroupHeader;
+
+                        //keep track of the added numbers bonus
+                        AddedItem.ToolTipText = result.bonus < 10 ? "0" + result.bonus : result.bonus.ToString();
+
+                        //add combination to subitems
+                        AddedItem.SubItems.Add(CombinationFormatting($"{CurrentNumbers[ 0 ]}", $"{CurrentNumbers[ 1 ]}", $"{CurrentNumbers[ 2 ]}", $"{CurrentNumbers[ 3 ]}", $"{CurrentNumbers[ 4 ]}", $"{CurrentNumbers[ 5 ]}", $"{CurrentNumbers[ 6 ]}", WhereIsSquaredNumber));
+
+                        //add state to subitems
+                        AddedItem.SubItems.Add(state.ToUpper());
+
+                        //add index in 85m
+                        int ind = result.position;
+
+                        //add tag
+                        AddedItem.Tag = ind;
+
+                        try
+                        {
+                            Indexes_85m.Add($"{CurrentNumbers[ 0 ]}-{CurrentNumbers[ 1 ]}-{CurrentNumbers[ 2 ]}-{CurrentNumbers[ 3 ]}-{CurrentNumbers[ 4 ]}-{CurrentNumbers[ 5 ]}-{CurrentNumbers[ 6 ]}", ind);
+                        }
+                        catch { }
+
+                        //add items to unsorted list
+                        string p_30 = ind % 30 == 0 ? "30" : ( ind % 30 ).ToString();
+                        ListViewItem UnsortedItem = listView1_Unsorted.Items.Add($"{listView1_Unsorted.Items.Count + 1}");//count
+                        one_thirty++;
+                        one_thirty = one_thirty <= 30 ? one_thirty : 1;
+                        UnsortedItem.SubItems.Add(one_thirty.ToString());//1-30 count
+                        UnsortedItem.SubItems.Add(AddedItem.Text);//date
+                        UnsortedItem.SubItems.Add(AddedItem.SubItems[ 1 ].Text);//combination
+                        UnsortedItem.SubItems.Add(p_30);//1-30 in 85m
+                        UnsortedItem.SubItems.Add($"{ind}");//index
+                        UnsortedItem.SubItems.Add(state.ToUpper());//state
+                        UnsortedItem.Tag = AddedItem.Tag;
+                        UnsortedItem.ToolTipText = theDate.ToShortDateString();
+
+                        //add date and combination for saving data to json RED
+                        date_AND_combination.Add(ReturnCorrectComb(AddedItem.SubItems[ 2 ].Text, theDate.ToShortDateString()),Array.ConvertAll( new int[] { result.first, result.second, result.third, result.forth, result.fifth, result.sixth, result.bonus }, a => a.ToString()).ToList());
+
+                    }
+                }
+            }
+
+            catch ( Exception e )
+            {
+                MessageBox.Show(e.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void NewNumberEdit()
@@ -4229,7 +4340,7 @@ namespace Brain
                     if ( this_state != "both" && this_state != "unknown" )
                     {
                         ListViewItem lw = listView1__Output_Info.Items.Add($"{DateTime.Now.ToLongTimeString()}");
-                        lw.SubItems.Add($"Getting latest results...");
+                        lw.SubItems.Add($"Fetching latest results...");
                         lw.EnsureVisible();
 
                         HttpClient client = new HttpClient();
@@ -4376,7 +4487,7 @@ namespace Brain
                 {
                     //Notify($"Getting all results...");
                     ListViewItem lvi = listView1__Output_Info.Items.Add(DateTime.Now.ToLongTimeString());
-                    lvi.SubItems.Add("Fetching results..."+ $"{0} / {DateTime.Now.Year - 1999}.");
+                    lvi.SubItems.Add("Fetching results "+ $"({0} / {DateTime.Now.Year - 1999})");
 
 
                     if ( !string.IsNullOrEmpty(this_state) )
@@ -4447,7 +4558,7 @@ namespace Brain
                             BETA_Data.Reverse();
                             RELEASE_Data.AddRange(BETA_Data);
                             //count++;
-                            lvi.SubItems[ 1 ].Text = "Fetching results..." + $"{count++} / {DateTime.Now.Year - 1999}.";
+                            lvi.SubItems[ 1 ].Text = "Fetching results " + $"({count++} / {DateTime.Now.Year - 1999})";
                         }
                     }
                     else
@@ -4478,27 +4589,48 @@ namespace Brain
                     using ( StreamWriter sw = new StreamWriter(filename) )
                     {
                         //sw.WriteLine();
-                        for ( int i = 0; i < RELEASE_Data.Count; i++ )
+                        using ( IDbConnection cnn = new SQLiteConnection(LoadConnectionString()) )
                         {
-                            List<string> data = RELEASE_Data[ i ];
-                            dateTimePicker1_Date.Value = DateTime.Parse(data[ 0 ]);
-                            boxes[ 0 ].Text = data[ 1 ];
-                            boxes[ 1 ].Text = data[ 2 ];
-                            boxes[ 2 ].Text = data[ 3 ];
-                            boxes[ 3 ].Text = data[ 4 ];
-                            boxes[ 4 ].Text = data[ 5 ];
-                            boxes[ 5 ].Text = data[ 6 ];
-                            boxes[ 6 ].Text = data[ 7 ];
+                            string s = this_state == "lunchtime" ? "Lunchtime" : "Teatime";
+                            //return res.ToList();
 
-                            if ( button1_Add.Enabled )
-                                AddNumbers();
-                            else Notify($"Error on {data[ 0 ]}. Numbers not added.");
-                            //write to file
-                            if ( i == RELEASE_Data.Count - 1 )
+                            for ( int i = 0; i < RELEASE_Data.Count; i++ )
                             {
-                                sw.Write($"{data[ 0 ].Trim()},{data[ 1 ]},{data[ 2 ]},{data[ 3 ]},{data[ 4 ]},{data[ 5 ]},{data[ 6 ]},{data[ 7 ]}");
+								List<string> data = RELEASE_Data[ i ];
+                                DateTime ddate = DateTime.Parse(data[ 0 ]);
+
+                                List<ResultsModel> res = cnn.Query<ResultsModel>($"SELECT * FROM {s} WHERE date = '{ddate.ToShortDateString()}'", new DynamicParameters()).ToList();
+
+								
+                                if ( res.Count != 1 )
+								{
+
+									dateTimePicker1_Date.Value = ddate;
+									boxes[ 0 ].Text = data[ 1 ];
+									boxes[ 1 ].Text = data[ 2 ];
+									boxes[ 2 ].Text = data[ 3 ];
+									boxes[ 3 ].Text = data[ 4 ];
+									boxes[ 4 ].Text = data[ 5 ];
+									boxes[ 5 ].Text = data[ 6 ];
+									boxes[ 6 ].Text = data[ 7 ];
+
+									if ( button1_Add.Enabled )
+										AddNumbers();
+									else Notify($"Error on {data[ 0 ]}. Numbers not added.");
+								}
+								else
+								{
+                                    AddNumbers(res);
+								}
+
+								//write to file
+								if ( i == RELEASE_Data.Count - 1 )
+								{
+									sw.Write($"{data[ 0 ].Trim()},{data[ 1 ]},{data[ 2 ]},{data[ 3 ]},{data[ 4 ]},{data[ 5 ]},{data[ 6 ]},{data[ 7 ]}");
+								}
+								else sw.WriteLine($"{data[ 0 ].Trim()},{data[ 1 ]},{data[ 2 ]},{data[ 3 ]},{data[ 4 ]},{data[ 5 ]},{data[ 6 ]},{data[ 7 ]}");
+
                             }
-                            else sw.WriteLine($"{data[ 0 ].Trim()},{data[ 1 ]},{data[ 2 ]},{data[ 3 ]},{data[ 4 ]},{data[ 5 ]},{data[ 6 ]},{data[ 7 ]}");
                         }
                     }
                     listView1_Date_and_Numbers.Items[ listView1_Date_and_Numbers.Items.Count - 1 ].EnsureVisible();
@@ -4588,5 +4720,36 @@ namespace Brain
             }
             
         }
-	}
+
+
+        private string LoadConnectionString(string name = "Default" )
+		{
+            return ConfigurationManager.ConnectionStrings[ name ].ConnectionString;
+		}
+
+        private List<ResultsModel> ImportFromDatabase()
+		{
+            using(IDbConnection cnn = new SQLiteConnection(LoadConnectionString()) )
+			{
+                    string s = state == "L" ? "Lunchtime" : "Teatime";
+                var res = cnn.Query<ResultsModel>($"select * from {s}", new DynamicParameters());
+                return res.ToList();
+			}
+		}
+
+        private void SaveToDatabase(ResultsModel r)
+        {
+            //ImportFromDatabase();
+			//try
+			//{
+				using ( IDbConnection cnn = new SQLiteConnection(LoadConnectionString()) )
+                {
+                    string s = state == "L" ? "Lunchtime" : "Teatime";
+                    //cnn.Execute("show tables;");
+                    cnn.Execute($"INSERT INTO {s} (date, first, second, third, forth, fifth, sixth, bonus, position) VALUES (@date, @first, @second, @third, @forth, @fifth, @sixth, @bonus, @position)",r);
+                }
+		//}
+		//	catch {  }
+        }
+    }
 }
