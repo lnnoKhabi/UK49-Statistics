@@ -144,7 +144,7 @@ namespace Brain
 					DrawFrequencyGraph();
 					Cycle();
 					NumbersStats();
-					listView1_ActualPred.Items.Add($"{Prediction()}");
+					//listView1_ActualPred.Items.Add($"{Prediction()}");
 
 					toolStripStatusLabel1_info_label.Text = "Complete.";
 

@@ -1212,7 +1212,8 @@ namespace Brain
         {
             ImportRequired("L");
             ImportRequired("T");
-
+            state = null;
+            //ImportedFile = "both";
             menuStrip1_Toolbar.BackColor = Color.LightSeaGreen;
 
             //sort date_and_comb
@@ -4072,7 +4073,6 @@ namespace Brain
         {
             try
             {
-                
                 date_AND_combination.Clear();
                 NumberAndDate.Clear();
                 Indexes_85m.Clear();
@@ -4087,6 +4087,8 @@ namespace Brain
                 listView1__Output_Info.Items.Clear();
                 MostRecentDate = DateTime.MinValue;
                 state = null;
+                ImportedFile = null; //file used when importing
+
                 EnableButtons(true);
                 menuStrip1_Toolbar.BackColor = Color.Gainsboro;
             }
@@ -4335,10 +4337,25 @@ namespace Brain
 
             try
             {
-                if ( !string.IsNullOrEmpty(ImportedFile) )
+                if (listView1_Date_and_Numbers.Items.Count > 0)
                 {
                     if ( this_state != "both" && this_state != "unknown" )
                     {
+                        string filename = null;
+                        if ( string.IsNullOrEmpty(ImportedFile) ) {
+                            //choose where to append results
+
+                            OpenFileDialog ofd = new OpenFileDialog();
+
+                            ofd.Filter = "Text files (*.txt)|*.txt";
+                            ofd.Title = "Choose file to add results to.";
+                            ofd.Multiselect = false;
+                            ofd.ShowDialog();
+                            filename = ofd.FileName;
+                            ofd.Dispose();
+
+                        } else filename = ImportedFile;
+
                         ListViewItem lw = listView1__Output_Info.Items.Add($"{DateTime.Now.ToLongTimeString()}");
                         lw.SubItems.Add($"Fetching latest results...");
                         lw.EnsureVisible();
@@ -4399,7 +4416,7 @@ namespace Brain
                             //add data to listview
                             TextBox[] boxes = { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7 };
 
-                            using ( StreamWriter sw = new StreamWriter(ImportedFile, true) )
+                            using ( StreamWriter sw = new StreamWriter(filename, true) )
                             {
                                 sw.WriteLine();
                                 for ( int i = 0; i < Correct_Data.Count; i++ )
@@ -4444,18 +4461,18 @@ namespace Brain
                     }
                     else
                     {
+
                         Notify($"Error retrieving results.");
 
-                        MessageBox.Show("Cannot get latest results in 'Combined' or 'Unknown' state. Import Lunchtime or Teatime separately and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Cannot get latest results. Please import Lunchtime or Teatime separately and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
+                    
                     Notify($"Error retrieving results.");
 
-                    //if import file is null or empty
-                    MessageBox.Show("Cannot get latest results, please 'Import' some results from your local machine and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    MessageBox.Show("Cannot get latest results. Please import Lunchtime or Teatime and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 
