@@ -1264,7 +1264,7 @@ namespace Brain
                 List<ResultsModel> results = ImportFromDatabase();
                 if(results.Count <= 0 ) 
                 {
-                    Notify("Database is empty. Importing from text file. This will take a while.");
+                    Notify("Database is empty. Importing from text file. This may take a while.");
                     string st = state == "L" ? "Lunchtime" : "Teatime";
 
                     OpenFileDialog ofd = new OpenFileDialog();
@@ -4748,7 +4748,7 @@ namespace Brain
 		{
             using(IDbConnection cnn = new SQLiteConnection(LoadConnectionString()) )
 			{
-                    string s = state == "L" ? "Lunchtime" : "Teatime";
+                string s = state == "L" ? "Lunchtime" : "Teatime";
                 var res = cnn.Query<ResultsModel>($"select * from {s}", new DynamicParameters());
                 return res.ToList();
 			}

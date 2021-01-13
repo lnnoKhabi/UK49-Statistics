@@ -92,6 +92,18 @@ namespace Brain
 			}
 		}
 
+		private void clear_()
+		{
+			chart2_all_freq.Series[ 0 ].Points.Clear();
+			chart2_all_freq.Series[ 1 ].Points.Clear();
+
+			listView1_Cycle.Items.Clear();
+
+			listView1_Table.Items.Clear();
+
+			listView1_PredChosen.Items.Clear();
+		}
+
 		private void DrawFrequencyGraph()
 		{
 			Dictionary<string, List<string>> Numbers = new Dictionary<string, List<string>>(date_AND_combination
@@ -100,8 +112,7 @@ namespace Brain
 						.ToDictionary(c => c.Key, d => d.Value)
 						);
 
-			chart2_all_freq.Series[ 0 ].Points.Clear();
-			chart2_all_freq.Series[ 1 ].Points.Clear();
+			
 
 			Dictionary<int, int> num_playcount_all = new Dictionary<int, int>();
 			Dictionary<int, int> num_playcount_all_bonus = new Dictionary<int, int>();
@@ -137,15 +148,16 @@ namespace Brain
 
 		private void Generate_Info()
 		{
-			try
-			{
+			//try
+			//{
 				if (imported)
 				{
+					clear_();
 					DrawFrequencyGraph();
 					Cycle();
 					NumbersStats();
 					//listView1_ActualPred.Items.Add($"{Prediction()}");
-
+					LottoNumbersDotComPrediction();
 					toolStripStatusLabel1_info_label.Text = "Complete.";
 
 				}
@@ -153,18 +165,17 @@ namespace Brain
 				{
 					toolStripStatusLabel1_info_label.Text = "You need to import some results.";
 				}
-			}
-			catch ( Exception e )
-			{
+			//}
+			//catch ( Exception e )
+			//{
 
-				toolStripStatusLabel1_info_label.Text = e.Message;
+			//	toolStripStatusLabel1_info_label.Text = e.Message;
 
-			}
+			//}
 		}
 
 		private void NumbersStats()
 		{
-			listView1_Table.Items.Clear();
 			listView1_Table.Groups.Add(new ListViewGroup("Top Numbers"));
 			listView1_Table.Groups.Add(new ListViewGroup("Bottom Numbers"));
 
@@ -278,7 +289,7 @@ namespace Brain
 
 		private void Cycle()
 		{
-			listView1_Cycle.Items.Clear();
+			
 			List<string> one_to_49 = new List<string>();
 
 			int count = 1;
@@ -439,60 +450,85 @@ namespace Brain
 			return LastCycleDate;
 		}
 
-		private int Prediction()
+		private void LottoNumbersDotComPrediction()
 		{
-			int count = 0;
-			int max = 50;
-			for ( int i = 1; i < max-3; i++ )
+			Dictionary<string, List<string>> Numbers = new Dictionary<string, List<string>>(date_AND_combination
+						.Where(a => DateTime.Parse(a.Key) >= dateTimePicker1_from.Value)
+						.Where(b => DateTime.Parse(b.Key) <= dateTimePicker2_to.Value)
+						.ToDictionary(c => c.Key, d => d.Value)
+						);
+
+			List<string> RecentNumbers = Numbers.Values.ElementAt(Numbers.Count - 1);
+			ListView.ColumnHeaderCollection lchc = listView1_PredChosen.Columns;
+			for ( int i = 1; i < 8; i++ )
 			{
-				for ( int j = i + 1; j < max- 2; j++ )
+				lchc[ i ].Text = RecentNumbers[ i - 1 ];
+			}
+
+			Dictionary<string, Dictionary<string, int>> NextDayFrequency = new Dictionary<string, Dictionary<string, int>>(7) {
+				{ RecentNumbers[0], new Dictionary<string, int>(49){ {"1", 0 }, {"2", 0 }, {"3", 0 }, {"4", 0 }, {"5", 0 }, {"6", 0 }, {"7", 0 }, {"8", 0 }, {"9", 0 }, { "10", 0 }, { "11", 0 }, { "12", 0 }, { "13", 0 }, { "14", 0 }, { "15", 0 }, { "16", 0 }, { "17", 0 }, { "18", 0 }, { "19", 0 }, { "20", 0 }, { "21", 0 }, { "22", 0 }, { "23", 0 }, { "24", 0 }, { "25", 0 }, { "26", 0 }, { "27", 0 }, { "28", 0 }, { "29", 0 }, { "30", 0 }, { "31", 0 }, { "32", 0 }, { "33", 0 }, { "34", 0 }, { "35", 0 }, { "36", 0 }, { "37", 0 }, { "38", 0 }, { "39", 0 }, { "40", 0 }, { "41", 0 }, { "42", 0 }, { "43", 0 }, { "44", 0 }, { "45", 0 }, { "46", 0 }, { "47", 0 }, { "48", 0 }, { "49", 0 } } },
+				{ RecentNumbers[1], new Dictionary<string, int>(49){ {"1", 0 }, {"2", 0 }, {"3", 0 }, {"4", 0 }, {"5", 0 }, {"6", 0 }, {"7", 0 }, {"8", 0 }, {"9", 0 }, { "10", 0 }, { "11", 0 }, { "12", 0 }, { "13", 0 }, { "14", 0 }, { "15", 0 }, { "16", 0 }, { "17", 0 }, { "18", 0 }, { "19", 0 }, { "20", 0 }, { "21", 0 }, { "22", 0 }, { "23", 0 }, { "24", 0 }, { "25", 0 }, { "26", 0 }, { "27", 0 }, { "28", 0 }, { "29", 0 }, { "30", 0 }, { "31", 0 }, { "32", 0 }, { "33", 0 }, { "34", 0 }, { "35", 0 }, { "36", 0 }, { "37", 0 }, { "38", 0 }, { "39", 0 }, { "40", 0 }, { "41", 0 }, { "42", 0 }, { "43", 0 }, { "44", 0 }, { "45", 0 }, { "46", 0 }, { "47", 0 }, { "48", 0 }, { "49", 0 } }},
+				{RecentNumbers[2],new Dictionary<string,int>(49){{"1",0},{"2",0},{"3",0},{"4",0},{"5",0},{"6",0},{"7",0},{"8",0},{"9",0},{"10",0},{"11",0},{"12",0},{"13",0},{"14",0},{"15",0},{"16",0},{"17",0},{"18",0},{"19",0},{"20",0},{"21",0},{"22",0},{"23",0},{"24",0},{"25",0},{"26",0},{"27",0},{"28",0},{"29",0},{"30",0},{"31",0},{"32",0},{"33",0},{"34",0},{"35",0},{"36",0},{"37",0},{"38",0},{"39",0},{"40",0},{"41",0},{"42",0},{"43",0},{"44",0},{"45",0},{"46",0},{"47",0},{"48",0},{"49",0}}},
+				{RecentNumbers[3],new Dictionary<string,int>(49){{"1",0},{"2",0},{"3",0},{"4",0},{"5",0},{"6",0},{"7",0},{"8",0},{"9",0},{"10",0},{"11",0},{"12",0},{"13",0},{"14",0},{"15",0},{"16",0},{"17",0},{"18",0},{"19",0},{"20",0},{"21",0},{"22",0},{"23",0},{"24",0},{"25",0},{"26",0},{"27",0},{"28",0},{"29",0},{"30",0},{"31",0},{"32",0},{"33",0},{"34",0},{"35",0},{"36",0},{"37",0},{"38",0},{"39",0},{"40",0},{"41",0},{"42",0},{"43",0},{"44",0},{"45",0},{"46",0},{"47",0},{"48",0},{"49",0}}},
+				{RecentNumbers[4],new Dictionary<string,int>(49){{"1",0},{"2",0},{"3",0},{"4",0},{"5",0},{"6",0},{"7",0},{"8",0},{"9",0},{"10",0},{"11",0},{"12",0},{"13",0},{"14",0},{"15",0},{"16",0},{"17",0},{"18",0},{"19",0},{"20",0},{"21",0},{"22",0},{"23",0},{"24",0},{"25",0},{"26",0},{"27",0},{"28",0},{"29",0},{"30",0},{"31",0},{"32",0},{"33",0},{"34",0},{"35",0},{"36",0},{"37",0},{"38",0},{"39",0},{"40",0},{"41",0},{"42",0},{"43",0},{"44",0},{"45",0},{"46",0},{"47",0},{"48",0},{"49",0}}},
+				{RecentNumbers[5],new Dictionary<string,int>(49){{"1",0},{"2",0},{"3",0},{"4",0},{"5",0},{"6",0},{"7",0},{"8",0},{"9",0},{"10",0},{"11",0},{"12",0},{"13",0},{"14",0},{"15",0},{"16",0},{"17",0},{"18",0},{"19",0},{"20",0},{"21",0},{"22",0},{"23",0},{"24",0},{"25",0},{"26",0},{"27",0},{"28",0},{"29",0},{"30",0},{"31",0},{"32",0},{"33",0},{"34",0},{"35",0},{"36",0},{"37",0},{"38",0},{"39",0},{"40",0},{"41",0},{"42",0},{"43",0},{"44",0},{"45",0},{"46",0},{"47",0},{"48",0},{"49",0}}},
+				{RecentNumbers[6],new Dictionary<string,int>(49){{"1",0},{"2",0},{"3",0},{"4",0},{"5",0},{"6",0},{"7",0},{"8",0},{"9",0},{"10",0},{"11",0},{"12",0},{"13",0},{"14",0},{"15",0},{"16",0},{"17",0},{"18",0},{"19",0},{"20",0},{"21",0},{"22",0},{"23",0},{"24",0},{"25",0},{"26",0},{"27",0},{"28",0},{"29",0},{"30",0},{"31",0},{"32",0},{"33",0},{"34",0},{"35",0},{"36",0},{"37",0},{"38",0},{"39",0},{"40",0},{"41",0},{"42",0},{"43",0},{"44",0},{"45",0},{"46",0},{"47",0},{"48",0},{"49",0}}}
+			};
+
+
+
+
+			for ( int i = 0; i <= Numbers.Count - 2; i++ )
+			{
+
+				List<string> res = Numbers.Values.ElementAt(i);
+				foreach ( string num in res )
 				{
-					for ( int l = j + 1; l < max - 1; l++ )
+					if ( RecentNumbers.Contains(num) )
 					{
-						for ( int m = l + 1; m < max; m++ )
+						List<string> next_res = Numbers.Values.ElementAt(i + 1);
+						foreach ( string nxt_num in next_res )
 						{
-							int[] nums = { i, j, l, m };
-							string[] cou = date_AND_combination.Values.ElementAt(date_AND_combination.Count() - 1).ToArray();
-							for ( int k = 0; k < nums.Length; k++ )
-							{
-								if(cou.Contains($"{nums[ k ]}" ))
-								{
-									if( isApproved(nums))
-									{
-										count++;
-										listView1_ActualPred.Items.Add($"{i}-{j}-{l}-{m}");
-										break;
-									}
-								}
-							}
-							//count += isLinear(new int[] { i, j, l, m }) ? 0 : 1;
+							NextDayFrequency[ num ][ nxt_num ]++;
 						}
 					}
 				}
 			}
-			return count;
-		}
 
-		private bool isApproved(int[] numbers )
-		{
-
-			HashSet<int> differences = new HashSet<int>();
-			HashSet<int> quad_differences = new HashSet<int>();
-			
-			for ( int i = numbers.Length - 1; i > 0 ; i-- )
+			int best_sum = 0;
+			int index = -1;
+			int indx = -1;
+			int overall = 0;
+			for ( int i = 1; i < 50; i++ )
 			{
-				//checking differences in case on linear sequance
-				differences.Add(numbers[ i ] - numbers[ i - 1 ]);
-				quad_differences.Add(numbers[ i ] / numbers[ i - 1 ]);
-				
-			}
+				int sum = 0;
+				ListViewItem lvi = listView1_PredChosen.Items.Add(i.ToString());
+				lvi.UseItemStyleForSubItems = false;
+				for ( int j = 0; j < 7; j++ )
+				{
+					string key = NextDayFrequency.Keys.ElementAt(j);
+					Dictionary<string, int> value = NextDayFrequency[ key ];
 
-			if ( differences.Count != numbers.Length -1 || quad_differences.Count != numbers.Length - 1 )
-			{
-				return false;
-			}
+					int max = NextDayFrequency.ElementAt(j).Value.Max(a => a.Value);
+					int min = NextDayFrequency.ElementAt(j).Value.Min(a => a.Value);
 
-			return true;
+					lvi.SubItems.Add(value[ i.ToString() ].ToString());
+					lvi.SubItems[ j + 1 ].BackColor = max == value[ i.ToString() ] ? Color.Aqua : lvi.SubItems[ j + 1 ].BackColor;
+					lvi.SubItems[ j + 1 ].BackColor = min == value[ i.ToString() ] ? Color.PaleVioletRed : lvi.SubItems[ j + 1 ].BackColor;
+					sum += value[ i.ToString() ];
+				}
+				//lvi.SubItems[0].BackColor = Color.Aquamarine;
+				index = sum > best_sum ? i - 1:index;
+				best_sum = sum > best_sum ? sum : best_sum;
+				lvi.SubItems.Add(sum.ToString());
+
+				int ov = Numbers.Values.Where(a => a.Contains(i.ToString())).Count();
+				indx = ov > overall ? i-1 : indx;
+				overall = ov > overall ? ov : overall;
+				lvi.SubItems.Add(ov.ToString());
+			}
+			listView1_PredChosen.Items[ index ].SubItems[ 8 ].BackColor = Color.LimeGreen;
+			listView1_PredChosen.Items[ indx ].SubItems[ 9 ].BackColor = Color.Lime;
 		}
 	}
 }
