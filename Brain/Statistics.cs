@@ -504,6 +504,7 @@ namespace Brain
 				int sum = 0;
 				ListViewItem lvi = listView1_PredChosen.Items.Add(i.ToString());
 				lvi.UseItemStyleForSubItems = false;
+				List<int> l = new List<int>();
 				for ( int j = 0; j < 7; j++ )
 				{
 					string key = NextDayFrequency.Keys.ElementAt(j);
@@ -516,6 +517,7 @@ namespace Brain
 					lvi.SubItems[ j + 1 ].BackColor = max == value[ i.ToString() ] ? Color.Aqua : lvi.SubItems[ j + 1 ].BackColor;
 					lvi.SubItems[ j + 1 ].BackColor = min == value[ i.ToString() ] ? Color.PaleVioletRed : lvi.SubItems[ j + 1 ].BackColor;
 					sum += value[ i.ToString() ];
+					l.Add(value[ i.ToString() ]);
 				}
 				//lvi.SubItems[0].BackColor = Color.Aquamarine;
 				index = sum > best_sum ? i - 1:index;
@@ -526,9 +528,19 @@ namespace Brain
 				indx = ov > overall ? i-1 : indx;
 				overall = ov > overall ? ov : overall;
 				lvi.SubItems.Add(ov.ToString());
+				double avg = ( double ) ( sum / 7 );
+				lvi.SubItems.Add(Math.Floor(avg ).ToString());
+				lvi.SubItems.Add(l.Where(a => a < avg).Count().ToString());
+
 			}
 			listView1_PredChosen.Items[ index ].SubItems[ 8 ].BackColor = Color.LimeGreen;
 			listView1_PredChosen.Items[ indx ].SubItems[ 9 ].BackColor = Color.Lime;
+		}
+
+		private void listView1_PredChosen_ItemSelectionChanged( object sender, ListViewItemSelectionChangedEventArgs e )
+		{
+			toolStripStatusLabel1_info_label.Text = $"{listView1_PredChosen.SelectedItems.Count} item(s) selected.";
+
 		}
 	}
 }
