@@ -54,33 +54,12 @@
 			this.teatimeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem5_UpdateNums = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
 			this.searchToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.readerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dreamGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.correspondingNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.bonusFrequencyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.removeTypedFrom85mToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.cyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.includeBonusToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.excludeBonusesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-			this.savePossibleFivesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripTextBox1_Date_From = new System.Windows.Forms.ToolStripTextBox();
-			this.toolStripTextBox2_Date_To = new System.Windows.Forms.ToolStripTextBox();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripMenuItem1_SelfSearch = new System.Windows.Forms.ToolStripMenuItem();
-			this.sixToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.sevenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.searchPlayedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.sixToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-			this.sevenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
 			this.listView1__Output_Info = new System.Windows.Forms.ListView();
 			this.columnHeader1_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader2_output = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -115,6 +94,7 @@
 			this.columnHeader5_State = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
+			this.pairingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel2_boxes.SuspendLayout();
 			this.menuStrip1_Toolbar.SuspendLayout();
 			this.tabControl1_with_listviews.SuspendLayout();
@@ -293,9 +273,7 @@
 			this.menuStrip1_Toolbar.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
 			this.menuStrip1_Toolbar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
-            this.toolStripMenuItem6,
-            this.toolStripMenuItem1,
-            this.searchToolStripMenuItem});
+            this.toolStripMenuItem6});
 			this.menuStrip1_Toolbar.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1_Toolbar.Name = "menuStrip1_Toolbar";
 			this.menuStrip1_Toolbar.Size = new System.Drawing.Size(816, 24);
@@ -311,8 +289,6 @@
             this.toolStripMenuItem5,
             this.toolStripMenuItem5_UpdateNums,
             this.toolStripSeparator1,
-            this.toolStripMenuItem2,
-            this.toolStripSeparator5,
             this.exitToolStripMenuItem});
 			this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
 			this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
@@ -327,7 +303,7 @@
             this.Import_Both_ToolStripMenuItem1});
 			this.toolStripMenuItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem4.Image")));
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(166, 22);
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItem4.Text = "Import";
 			// 
 			// lunchtimeToolStripMenuItem
@@ -399,19 +375,6 @@
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(163, 6);
 			// 
-			// toolStripMenuItem2
-			// 
-			this.toolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem2.Image")));
-			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(166, 22);
-			this.toolStripMenuItem2.Text = "Save Output";
-			this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click_1);
-			// 
-			// toolStripSeparator5
-			// 
-			this.toolStripSeparator5.Name = "toolStripSeparator5";
-			this.toolStripSeparator5.Size = new System.Drawing.Size(163, 6);
-			// 
 			// exitToolStripMenuItem
 			// 
 			this.exitToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exitToolStripMenuItem.Image")));
@@ -428,7 +391,8 @@
             this.searchToolStripMenuItem1,
             this.readerToolStripMenuItem,
             this.sToolStripMenuItem,
-            this.dreamGuideToolStripMenuItem});
+            this.dreamGuideToolStripMenuItem,
+            this.pairingToolStripMenuItem});
 			this.toolStripMenuItem6.Name = "toolStripMenuItem6";
 			this.toolStripMenuItem6.Size = new System.Drawing.Size(46, 20);
 			this.toolStripMenuItem6.Text = "Tools";
@@ -460,158 +424,6 @@
 			this.dreamGuideToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
 			this.dreamGuideToolStripMenuItem.Text = "Dream Guide";
 			this.dreamGuideToolStripMenuItem.Click += new System.EventHandler(this.dreamGuideToolStripMenuItem_Click);
-			// 
-			// toolStripMenuItem1
-			// 
-			this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.correspondingNumbersToolStripMenuItem,
-            this.bonusFrequencyToolStripMenuItem,
-            this.removeTypedFrom85mToolStripMenuItem,
-            this.cyleToolStripMenuItem,
-            this.toolStripSeparator9,
-            this.savePossibleFivesToolStripMenuItem});
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(42, 20);
-			this.toolStripMenuItem1.Text = "Find";
-			// 
-			// correspondingNumbersToolStripMenuItem
-			// 
-			this.correspondingNumbersToolStripMenuItem.Name = "correspondingNumbersToolStripMenuItem";
-			this.correspondingNumbersToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-			this.correspondingNumbersToolStripMenuItem.Text = "Corresponding Numbers";
-			this.correspondingNumbersToolStripMenuItem.Click += new System.EventHandler(this.correspondingNumbersToolStripMenuItem_Click);
-			// 
-			// bonusFrequencyToolStripMenuItem
-			// 
-			this.bonusFrequencyToolStripMenuItem.Name = "bonusFrequencyToolStripMenuItem";
-			this.bonusFrequencyToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-			this.bonusFrequencyToolStripMenuItem.Text = "Bonus Frequency";
-			this.bonusFrequencyToolStripMenuItem.Click += new System.EventHandler(this.bonusFrequencyToolStripMenuItem_Click);
-			// 
-			// removeTypedFrom85mToolStripMenuItem
-			// 
-			this.removeTypedFrom85mToolStripMenuItem.Name = "removeTypedFrom85mToolStripMenuItem";
-			this.removeTypedFrom85mToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-			this.removeTypedFrom85mToolStripMenuItem.Text = "Remove Typed Numbers";
-			this.removeTypedFrom85mToolStripMenuItem.Click += new System.EventHandler(this.removeTypedFrom85mToolStripMenuItem_Click);
-			// 
-			// cyleToolStripMenuItem
-			// 
-			this.cyleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.includeBonusToolStripMenuItem1,
-            this.excludeBonusesToolStripMenuItem});
-			this.cyleToolStripMenuItem.Name = "cyleToolStripMenuItem";
-			this.cyleToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-			this.cyleToolStripMenuItem.Text = "Numbers Cycle";
-			// 
-			// includeBonusToolStripMenuItem1
-			// 
-			this.includeBonusToolStripMenuItem1.Name = "includeBonusToolStripMenuItem1";
-			this.includeBonusToolStripMenuItem1.Size = new System.Drawing.Size(151, 22);
-			this.includeBonusToolStripMenuItem1.Text = "Include Bonus";
-			this.includeBonusToolStripMenuItem1.Click += new System.EventHandler(this.includeBonusToolStripMenuItem1_Click);
-			// 
-			// excludeBonusesToolStripMenuItem
-			// 
-			this.excludeBonusesToolStripMenuItem.Name = "excludeBonusesToolStripMenuItem";
-			this.excludeBonusesToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
-			this.excludeBonusesToolStripMenuItem.Text = "Exclude Bonus";
-			this.excludeBonusesToolStripMenuItem.Click += new System.EventHandler(this.excludeBonusesToolStripMenuItem_Click);
-			// 
-			// toolStripSeparator9
-			// 
-			this.toolStripSeparator9.Name = "toolStripSeparator9";
-			this.toolStripSeparator9.Size = new System.Drawing.Size(202, 6);
-			// 
-			// savePossibleFivesToolStripMenuItem
-			// 
-			this.savePossibleFivesToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-			this.savePossibleFivesToolStripMenuItem.Name = "savePossibleFivesToolStripMenuItem";
-			this.savePossibleFivesToolStripMenuItem.Size = new System.Drawing.Size(205, 22);
-			this.savePossibleFivesToolStripMenuItem.Text = "Save Possible Fives";
-			this.savePossibleFivesToolStripMenuItem.Click += new System.EventHandler(this.savePossibleFivesToolStripMenuItem_Click);
-			// 
-			// searchToolStripMenuItem
-			// 
-			this.searchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox1_Date_From,
-            this.toolStripTextBox2_Date_To,
-            this.toolStripSeparator2,
-            this.toolStripMenuItem1_SelfSearch,
-            this.searchPlayedToolStripMenuItem});
-			this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-			this.searchToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
-			this.searchToolStripMenuItem.Text = "Self Search";
-			this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
-			// 
-			// toolStripTextBox1_Date_From
-			// 
-			this.toolStripTextBox1_Date_From.BackColor = System.Drawing.SystemColors.ScrollBar;
-			this.toolStripTextBox1_Date_From.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.toolStripTextBox1_Date_From.Name = "toolStripTextBox1_Date_From";
-			this.toolStripTextBox1_Date_From.Size = new System.Drawing.Size(100, 23);
-			this.toolStripTextBox1_Date_From.ToolTipText = "Enter date to start searching from";
-			// 
-			// toolStripTextBox2_Date_To
-			// 
-			this.toolStripTextBox2_Date_To.BackColor = System.Drawing.SystemColors.ScrollBar;
-			this.toolStripTextBox2_Date_To.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.toolStripTextBox2_Date_To.Name = "toolStripTextBox2_Date_To";
-			this.toolStripTextBox2_Date_To.Size = new System.Drawing.Size(100, 23);
-			this.toolStripTextBox2_Date_To.ToolTipText = "Enter date to stop searching at";
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
-			// 
-			// toolStripMenuItem1_SelfSearch
-			// 
-			this.toolStripMenuItem1_SelfSearch.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sixToolStripMenuItem,
-            this.sevenToolStripMenuItem});
-			this.toolStripMenuItem1_SelfSearch.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1_SelfSearch.Image")));
-			this.toolStripMenuItem1_SelfSearch.Name = "toolStripMenuItem1_SelfSearch";
-			this.toolStripMenuItem1_SelfSearch.Size = new System.Drawing.Size(160, 22);
-			this.toolStripMenuItem1_SelfSearch.Text = "Search All";
-			// 
-			// sixToolStripMenuItem
-			// 
-			this.sixToolStripMenuItem.Name = "sixToolStripMenuItem";
-			this.sixToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-			this.sixToolStripMenuItem.Text = "Six";
-			this.sixToolStripMenuItem.Click += new System.EventHandler(this.sixToolStripMenuItem_Click);
-			// 
-			// sevenToolStripMenuItem
-			// 
-			this.sevenToolStripMenuItem.Name = "sevenToolStripMenuItem";
-			this.sevenToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-			this.sevenToolStripMenuItem.Text = "Seven";
-			this.sevenToolStripMenuItem.Click += new System.EventHandler(this.sevenToolStripMenuItem_Click);
-			// 
-			// searchPlayedToolStripMenuItem
-			// 
-			this.searchPlayedToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sixToolStripMenuItem1,
-            this.sevenToolStripMenuItem1});
-			this.searchPlayedToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("searchPlayedToolStripMenuItem.Image")));
-			this.searchPlayedToolStripMenuItem.Name = "searchPlayedToolStripMenuItem";
-			this.searchPlayedToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-			this.searchPlayedToolStripMenuItem.Text = "Search Played";
-			// 
-			// sixToolStripMenuItem1
-			// 
-			this.sixToolStripMenuItem1.Name = "sixToolStripMenuItem1";
-			this.sixToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
-			this.sixToolStripMenuItem1.Text = "Six";
-			this.sixToolStripMenuItem1.Click += new System.EventHandler(this.sixToolStripMenuItem1_Click);
-			// 
-			// sevenToolStripMenuItem1
-			// 
-			this.sevenToolStripMenuItem1.Name = "sevenToolStripMenuItem1";
-			this.sevenToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
-			this.sevenToolStripMenuItem1.Text = "Seven";
-			this.sevenToolStripMenuItem1.Click += new System.EventHandler(this.sevenToolStripMenuItem1_Click);
 			// 
 			// listView1__Output_Info
 			// 
@@ -929,6 +741,13 @@
 			// 
 			this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1_Toolbar);
 			// 
+			// pairingToolStripMenuItem
+			// 
+			this.pairingToolStripMenuItem.Name = "pairingToolStripMenuItem";
+			this.pairingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.pairingToolStripMenuItem.Text = "Pairing";
+			this.pairingToolStripMenuItem.Click += new System.EventHandler(this.pairingToolStripMenuItem_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1009,30 +828,14 @@
 		private System.Windows.Forms.ColumnHeader columnHeader4_comb;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip_UnsortedRightClick;
 		private System.Windows.Forms.ToolStripMenuItem sortNumbersToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
-		private System.Windows.Forms.ToolStripTextBox toolStripTextBox1_Date_From;
-		private System.Windows.Forms.ToolStripTextBox toolStripTextBox2_Date_To;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1_SelfSearch;
 		private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem correspondingNumbersToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem bonusFrequencyToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-		private System.Windows.Forms.ToolStripMenuItem removeTypedFrom85mToolStripMenuItem;
 		private System.Windows.Forms.ColumnHeader columnHeader3_State;
 		private System.Windows.Forms.ColumnHeader columnHeader5_State;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
 		private System.Windows.Forms.ToolStripMenuItem lunchtimeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem teatimeToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem searchPlayedToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem sixToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem sevenToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem sixToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem sevenToolStripMenuItem1;
         private System.Windows.Forms.ColumnHeader columnHeader6_85m_Index;
 		private System.Windows.Forms.ColumnHeader columnHeader6_1_30_in85;
         private System.Windows.Forms.ColumnHeader columnHeader6_numbering;
@@ -1049,13 +852,9 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
 		private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem1;
 		private System.Windows.Forms.ToolStripMenuItem readerToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem cyleToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem includeBonusToolStripMenuItem1;
-		private System.Windows.Forms.ToolStripMenuItem excludeBonusesToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem sToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem dreamGuideToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
-		private System.Windows.Forms.ToolStripMenuItem savePossibleFivesToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem pairingToolStripMenuItem;
 	}
 }
 
