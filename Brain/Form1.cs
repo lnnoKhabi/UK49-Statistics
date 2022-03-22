@@ -26,7 +26,7 @@ namespace Brain
 
         int[] values = new int[ 43 ];//indexes of known combs e.g 1-2-3-4-5-6-7  ,  2-3-4-5-6-7-8
 
-        private int one_thirty = 0;//for 1-30 count in addNumbers
+        //private int one_thirty = 0;//for 1-30 count in addNumbers
 
         private CultureInfo CULTURE = new CultureInfo("en-GB");
 
@@ -594,14 +594,14 @@ namespace Brain
                     SaveToDatabase(r);
 
                     //add items to unsorted list
-                    string p_30 = ind % 30 == 0 ? "30" : ( ind % 30 ).ToString();
+                    //string p_30 = ind % 30 == 0 ? "30" : ( ind % 30 ).ToString();
                     ListViewItem UnsortedItem = listView1_Unsorted.Items.Add($"{listView1_Unsorted.Items.Count + 1}");//count
-                    one_thirty++;
-                    one_thirty = one_thirty <= 30 ? one_thirty: 1;
-                    UnsortedItem.SubItems.Add(one_thirty.ToString());//1-30 count
+                    //one_thirty++;
+                    //one_thirty = one_thirty <= 30 ? one_thirty: 1;
+                    //UnsortedItem.SubItems.Add(one_thirty.ToString());//1-30 count
                     UnsortedItem.SubItems.Add(AddedItem.Text);//date
                     UnsortedItem.SubItems.Add(AddedItem.SubItems[ 1 ].Text);//combination
-                    UnsortedItem.SubItems.Add(p_30);//1-30 in 85m
+                    //UnsortedItem.SubItems.Add(p_30);//1-30 in 85m
                     UnsortedItem.SubItems.Add($"{ind}");//index
                     UnsortedItem.SubItems.Add(state.ToUpper());//state
                     UnsortedItem.Tag = AddedItem.Tag;
@@ -695,14 +695,14 @@ namespace Brain
                         catch { }
 
                         //add items to unsorted list
-                        string p_30 = ind % 30 == 0 ? "30" : ( ind % 30 ).ToString();
+                        //string p_30 = ind % 30 == 0 ? "30" : ( ind % 30 ).ToString();
                         ListViewItem UnsortedItem = listView1_Unsorted.Items.Add($"{listView1_Unsorted.Items.Count + 1}");//count
-                        one_thirty++;
-                        one_thirty = one_thirty <= 30 ? one_thirty : 1;
-                        UnsortedItem.SubItems.Add(one_thirty.ToString());//1-30 count
+                        //one_thirty++;
+                        //one_thirty = one_thirty <= 30 ? one_thirty : 1;
+                        //UnsortedItem.SubItems.Add(one_thirty.ToString());//1-30 count
                         UnsortedItem.SubItems.Add(AddedItem.Text);//date
                         UnsortedItem.SubItems.Add(AddedItem.SubItems[ 1 ].Text);//combination
-                        UnsortedItem.SubItems.Add(p_30);//1-30 in 85m
+                        //UnsortedItem.SubItems.Add(p_30);//1-30 in 85m
                         UnsortedItem.SubItems.Add($"{ind}");//index
                         UnsortedItem.SubItems.Add(state.ToUpper());//state
                         UnsortedItem.Tag = AddedItem.Tag;

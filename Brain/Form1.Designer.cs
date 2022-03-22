@@ -60,6 +60,7 @@
 			this.readerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.sToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.dreamGuideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.pairingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.listView1__Output_Info = new System.Windows.Forms.ListView();
 			this.columnHeader1_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader2_output = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -86,15 +87,12 @@
 			this.tabPage2 = new System.Windows.Forms.TabPage();
 			this.listView1_Unsorted = new System.Windows.Forms.ListView();
 			this.columnHeader6_numbering = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader2_1_30 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader3_date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader4_comb = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader6_1_30_in85 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader6_85m_Index = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader5_State = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-			this.pairingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tableLayoutPanel2_boxes.SuspendLayout();
 			this.menuStrip1_Toolbar.SuspendLayout();
 			this.tabControl1_with_listviews.SuspendLayout();
@@ -303,7 +301,7 @@
             this.Import_Both_ToolStripMenuItem1});
 			this.toolStripMenuItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem4.Image")));
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(166, 22);
 			this.toolStripMenuItem4.Text = "Import";
 			// 
 			// lunchtimeToolStripMenuItem
@@ -424,6 +422,13 @@
 			this.dreamGuideToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
 			this.dreamGuideToolStripMenuItem.Text = "Dream Guide";
 			this.dreamGuideToolStripMenuItem.Click += new System.EventHandler(this.dreamGuideToolStripMenuItem_Click);
+			// 
+			// pairingToolStripMenuItem
+			// 
+			this.pairingToolStripMenuItem.Name = "pairingToolStripMenuItem";
+			this.pairingToolStripMenuItem.Size = new System.Drawing.Size(143, 22);
+			this.pairingToolStripMenuItem.Text = "Pairing";
+			this.pairingToolStripMenuItem.Click += new System.EventHandler(this.pairingToolStripMenuItem_Click);
 			// 
 			// listView1__Output_Info
 			// 
@@ -643,10 +648,8 @@
 			// 
 			this.listView1_Unsorted.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader6_numbering,
-            this.columnHeader2_1_30,
             this.columnHeader3_date,
             this.columnHeader4_comb,
-            this.columnHeader6_1_30_in85,
             this.columnHeader6_85m_Index,
             this.columnHeader5_State});
 			this.listView1_Unsorted.Cursor = System.Windows.Forms.Cursors.Default;
@@ -668,25 +671,15 @@
 			this.columnHeader6_numbering.Text = "Numbering";
 			this.columnHeader6_numbering.Width = 73;
 			// 
-			// columnHeader2_1_30
-			// 
-			this.columnHeader2_1_30.Text = "1 - 30";
-			this.columnHeader2_1_30.Width = 53;
-			// 
 			// columnHeader3_date
 			// 
-			this.columnHeader3_date.Text = "Dates";
+			this.columnHeader3_date.Text = "Date";
 			this.columnHeader3_date.Width = 94;
 			// 
 			// columnHeader4_comb
 			// 
 			this.columnHeader4_comb.Text = "Numbers";
 			this.columnHeader4_comb.Width = 227;
-			// 
-			// columnHeader6_1_30_in85
-			// 
-			this.columnHeader6_1_30_in85.Text = "Index 1 - 30";
-			this.columnHeader6_1_30_in85.Width = 76;
 			// 
 			// columnHeader6_85m_Index
 			// 
@@ -740,13 +733,6 @@
 			// toolStripContainer1.TopToolStripPanel
 			// 
 			this.toolStripContainer1.TopToolStripPanel.Controls.Add(this.menuStrip1_Toolbar);
-			// 
-			// pairingToolStripMenuItem
-			// 
-			this.pairingToolStripMenuItem.Name = "pairingToolStripMenuItem";
-			this.pairingToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.pairingToolStripMenuItem.Text = "Pairing";
-			this.pairingToolStripMenuItem.Click += new System.EventHandler(this.pairingToolStripMenuItem_Click);
 			// 
 			// Form1
 			// 
@@ -823,7 +809,6 @@
 		private System.Windows.Forms.TabPage tabPage1;
 		private System.Windows.Forms.TabPage tabPage2;
 		private System.Windows.Forms.ListView listView1_Unsorted;
-		private System.Windows.Forms.ColumnHeader columnHeader2_1_30;
 		private System.Windows.Forms.ColumnHeader columnHeader3_date;
 		private System.Windows.Forms.ColumnHeader columnHeader4_comb;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip_UnsortedRightClick;
@@ -837,7 +822,6 @@
 		private System.Windows.Forms.ToolStripMenuItem lunchtimeToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem teatimeToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader columnHeader6_85m_Index;
-		private System.Windows.Forms.ColumnHeader columnHeader6_1_30_in85;
         private System.Windows.Forms.ColumnHeader columnHeader6_numbering;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5_UpdateNums;
 		private System.Windows.Forms.SplitContainer splitContainer1;
