@@ -301,7 +301,7 @@
             this.Import_Both_ToolStripMenuItem1});
 			this.toolStripMenuItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem4.Image")));
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(166, 22);
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItem4.Text = "Import";
 			// 
 			// lunchtimeToolStripMenuItem
@@ -363,9 +363,8 @@
 			// 
 			this.toolStripMenuItem5_UpdateNums.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem5_UpdateNums.Image")));
 			this.toolStripMenuItem5_UpdateNums.Name = "toolStripMenuItem5_UpdateNums";
-			this.toolStripMenuItem5_UpdateNums.Size = new System.Drawing.Size(166, 22);
+			this.toolStripMenuItem5_UpdateNums.Size = new System.Drawing.Size(180, 22);
 			this.toolStripMenuItem5_UpdateNums.Text = "Get Latest Results";
-			this.toolStripMenuItem5_UpdateNums.ToolTipText = "automatically add most recent results";
 			this.toolStripMenuItem5_UpdateNums.Click += new System.EventHandler(this.toolStripMenuItem5_UpdateNums_Click);
 			// 
 			// toolStripSeparator1

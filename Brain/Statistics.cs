@@ -250,7 +250,7 @@ namespace Brain
 				}
 
 				//get average pick
-				string average_pick = LastPicked[ number ] == 0? "Never drawn." : $"{(double)Numbers.Count / (double)PlayTime[ number ]} days.";
+				string average_pick = LastPicked[ number ] == 0? "Never drawn." : $"{Math.Round((double)Numbers.Count / (double)PlayTime[ number ], 1)} days.";
 				string last_pick = LastPicked[ number ] == 0? "Never drawn.":$"{LastPicked[ number ]} day(s) ago. ({today.Subtract(new TimeSpan(LastPicked[number],0,0,0)).ToShortDateString()})";
 
 				//get picked with numbers
