@@ -28,15 +28,15 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Top Numbers", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("Bottom Numbers", System.Windows.Forms.HorizontalAlignment.Left);
-			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-			System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel1 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
-			System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel2 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
-			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-			System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+			System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Top Numbers", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.ListViewGroup listViewGroup4 = new System.Windows.Forms.ListViewGroup("Bottom Numbers", System.Windows.Forms.HorizontalAlignment.Left);
+			System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+			System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel3 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+			System.Windows.Forms.DataVisualization.Charting.CustomLabel customLabel4 = new System.Windows.Forms.DataVisualization.Charting.CustomLabel();
+			System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.button1_generate = new System.Windows.Forms.Button();
 			this.dateTimePicker1_from = new System.Windows.Forms.DateTimePicker();
@@ -256,13 +256,13 @@
 			this.listView1_Table.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.listView1_Table.FullRowSelect = true;
 			this.listView1_Table.GridLines = true;
-			listViewGroup1.Header = "Top Numbers";
-			listViewGroup1.Name = "listViewGroup_Top";
-			listViewGroup2.Header = "Bottom Numbers";
-			listViewGroup2.Name = "listViewGroup_Bottom";
+			listViewGroup3.Header = "Top Numbers";
+			listViewGroup3.Name = "listViewGroup_Top";
+			listViewGroup4.Header = "Bottom Numbers";
+			listViewGroup4.Name = "listViewGroup_Bottom";
 			this.listView1_Table.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1,
-            listViewGroup2});
+            listViewGroup3,
+            listViewGroup4});
 			this.listView1_Table.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
 			this.listView1_Table.HideSelection = false;
 			this.listView1_Table.Location = new System.Drawing.Point(0, 0);
@@ -320,93 +320,93 @@
 			this.chart2_all_freq.BackColor = System.Drawing.Color.Transparent;
 			this.chart2_all_freq.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.chart2_all_freq.BorderSkin.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-			chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-			chartArea1.AxisX.InterlacedColor = System.Drawing.Color.Transparent;
-			chartArea1.AxisX.Interval = 1D;
-			chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-			chartArea1.AxisX.IsMarksNextToAxis = false;
-			chartArea1.AxisX.IsStartedFromZero = false;
-			chartArea1.AxisX.LabelAutoFitMinFontSize = 5;
-			chartArea1.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
+			chartArea2.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+			chartArea2.AxisX.InterlacedColor = System.Drawing.Color.Transparent;
+			chartArea2.AxisX.Interval = 1D;
+			chartArea2.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+			chartArea2.AxisX.IsMarksNextToAxis = false;
+			chartArea2.AxisX.IsStartedFromZero = false;
+			chartArea2.AxisX.LabelAutoFitMinFontSize = 5;
+			chartArea2.AxisX.LabelAutoFitStyle = ((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles)((((((System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.IncreaseFont | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.DecreaseFont) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.StaggeredLabels) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep30) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.LabelsAngleStep45) 
             | System.Windows.Forms.DataVisualization.Charting.LabelAutoFitStyles.WordWrap)));
-			chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			chartArea1.AxisX.LabelStyle.Interval = 1D;
-			chartArea1.AxisX.LabelStyle.IntervalOffset = 1D;
-			chartArea1.AxisX.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-			chartArea1.AxisX.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-			chartArea1.AxisX.MajorGrid.Enabled = false;
-			chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-			chartArea1.AxisX.MajorTickMark.Interval = 1D;
-			chartArea1.AxisX.MajorTickMark.IntervalOffset = 1D;
-			chartArea1.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-			chartArea1.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-			chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Gray;
-			chartArea1.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-			chartArea1.AxisX.MajorTickMark.Size = 3F;
-			chartArea1.AxisX.Maximum = 50D;
-			chartArea1.AxisX.MaximumAutoSize = 100F;
-			chartArea1.AxisX.Minimum = 0D;
-			chartArea1.AxisX.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
-			chartArea1.AxisX.ScaleBreakStyle.Spacing = 1D;
-			chartArea1.AxisX.ScrollBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			chartArea1.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.White;
-			chartArea1.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
-			chartArea1.AxisX.ScrollBar.Size = 20D;
-			chartArea1.AxisX.Title = "Numbers";
-			chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			chartArea1.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			customLabel1.ForeColor = System.Drawing.Color.Black;
-			customLabel1.FromPosition = 4D;
-			customLabel1.MarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-			chartArea1.AxisX2.CustomLabels.Add(customLabel1);
-			chartArea1.AxisX2.CustomLabels.Add(customLabel2);
-			chartArea1.AxisX2.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
-			chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
-			chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			chartArea1.AxisY.LabelStyle.Interval = 0D;
-			chartArea1.AxisY.LabelStyle.IntervalOffset = 0D;
-			chartArea1.AxisY.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-			chartArea1.AxisY.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-			chartArea1.AxisY.MajorGrid.Interval = 0D;
-			chartArea1.AxisY.MajorGrid.IntervalOffset = 0D;
-			chartArea1.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-			chartArea1.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-			chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
-			chartArea1.AxisY.MajorTickMark.Interval = 0D;
-			chartArea1.AxisY.MajorTickMark.IntervalOffset = 0D;
-			chartArea1.AxisY.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-			chartArea1.AxisY.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
-			chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Silver;
-			chartArea1.AxisY.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-			chartArea1.AxisY.Maximum = 10D;
-			chartArea1.AxisY.Minimum = 0D;
-			chartArea1.AxisY.ScrollBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-			chartArea1.AxisY.ScrollBar.ButtonColor = System.Drawing.Color.White;
-			chartArea1.AxisY.ScrollBar.LineColor = System.Drawing.Color.Black;
-			chartArea1.AxisY.ScrollBar.Size = 20D;
-			chartArea1.AxisY.Title = "Number of times played";
-			chartArea1.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			chartArea1.BackColor = System.Drawing.Color.Transparent;
-			chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
-			chartArea1.CursorX.IsUserEnabled = true;
-			chartArea1.CursorX.IsUserSelectionEnabled = true;
-			chartArea1.CursorX.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			chartArea1.CursorY.IsUserEnabled = true;
-			chartArea1.CursorY.IsUserSelectionEnabled = true;
-			chartArea1.CursorY.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			chartArea1.Name = "ChartArea1";
-			this.chart2_all_freq.ChartAreas.Add(chartArea1);
+			chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			chartArea2.AxisX.LabelStyle.Interval = 1D;
+			chartArea2.AxisX.LabelStyle.IntervalOffset = 1D;
+			chartArea2.AxisX.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+			chartArea2.AxisX.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+			chartArea2.AxisX.MajorGrid.Enabled = false;
+			chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+			chartArea2.AxisX.MajorTickMark.Interval = 1D;
+			chartArea2.AxisX.MajorTickMark.IntervalOffset = 1D;
+			chartArea2.AxisX.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+			chartArea2.AxisX.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+			chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.Gray;
+			chartArea2.AxisX.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+			chartArea2.AxisX.MajorTickMark.Size = 3F;
+			chartArea2.AxisX.Maximum = 50D;
+			chartArea2.AxisX.MaximumAutoSize = 100F;
+			chartArea2.AxisX.Minimum = 0D;
+			chartArea2.AxisX.ScaleBreakStyle.BreakLineStyle = System.Windows.Forms.DataVisualization.Charting.BreakLineStyle.None;
+			chartArea2.AxisX.ScaleBreakStyle.Spacing = 1D;
+			chartArea2.AxisX.ScrollBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			chartArea2.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.White;
+			chartArea2.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
+			chartArea2.AxisX.ScrollBar.Size = 20D;
+			chartArea2.AxisX.Title = "Numbers";
+			chartArea2.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			chartArea2.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			customLabel3.ForeColor = System.Drawing.Color.Black;
+			customLabel3.FromPosition = 4D;
+			customLabel3.MarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+			chartArea2.AxisX2.CustomLabels.Add(customLabel3);
+			chartArea2.AxisX2.CustomLabels.Add(customLabel4);
+			chartArea2.AxisX2.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Number;
+			chartArea2.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
+			chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			chartArea2.AxisY.LabelStyle.Interval = 0D;
+			chartArea2.AxisY.LabelStyle.IntervalOffset = 0D;
+			chartArea2.AxisY.LabelStyle.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+			chartArea2.AxisY.LabelStyle.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+			chartArea2.AxisY.MajorGrid.Interval = 0D;
+			chartArea2.AxisY.MajorGrid.IntervalOffset = 0D;
+			chartArea2.AxisY.MajorGrid.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+			chartArea2.AxisY.MajorGrid.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+			chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.Silver;
+			chartArea2.AxisY.MajorTickMark.Interval = 0D;
+			chartArea2.AxisY.MajorTickMark.IntervalOffset = 0D;
+			chartArea2.AxisY.MajorTickMark.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+			chartArea2.AxisY.MajorTickMark.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Auto;
+			chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.Silver;
+			chartArea2.AxisY.MajorTickMark.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+			chartArea2.AxisY.Maximum = 10D;
+			chartArea2.AxisY.Minimum = 0D;
+			chartArea2.AxisY.ScrollBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+			chartArea2.AxisY.ScrollBar.ButtonColor = System.Drawing.Color.White;
+			chartArea2.AxisY.ScrollBar.LineColor = System.Drawing.Color.Black;
+			chartArea2.AxisY.ScrollBar.Size = 20D;
+			chartArea2.AxisY.Title = "Number of times played";
+			chartArea2.AxisY.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			chartArea2.BackColor = System.Drawing.Color.Transparent;
+			chartArea2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
+			chartArea2.CursorX.IsUserEnabled = true;
+			chartArea2.CursorX.IsUserSelectionEnabled = true;
+			chartArea2.CursorX.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			chartArea2.CursorY.IsUserEnabled = true;
+			chartArea2.CursorY.IsUserSelectionEnabled = true;
+			chartArea2.CursorY.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			chartArea2.Name = "ChartArea1";
+			this.chart2_all_freq.ChartAreas.Add(chartArea2);
 			this.chart2_all_freq.Dock = System.Windows.Forms.DockStyle.Fill;
-			legend1.BackColor = System.Drawing.Color.White;
-			legend1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			legend1.DockedToChartArea = "ChartArea1";
-			legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
-			legend1.MaximumAutoSize = 25F;
-			legend1.Name = "Legend1";
-			this.chart2_all_freq.Legends.Add(legend1);
+			legend2.BackColor = System.Drawing.Color.White;
+			legend2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			legend2.DockedToChartArea = "ChartArea1";
+			legend2.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
+			legend2.MaximumAutoSize = 25F;
+			legend2.Name = "Legend1";
+			this.chart2_all_freq.Legends.Add(legend2);
 			this.chart2_all_freq.Location = new System.Drawing.Point(0, 0);
 			this.chart2_all_freq.Name = "chart2_all_freq";
 			this.chart2_all_freq.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -418,33 +418,33 @@
         System.Drawing.Color.Lime,
         System.Drawing.Color.Red,
         System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))))};
-			series1.ChartArea = "ChartArea1";
-			series1.Color = System.Drawing.Color.RoyalBlue;
-			series1.CustomProperties = "DrawingStyle=Cylinder, EmptyPointValue=Zero, PointWidth=0.7, LabelStyle=Top";
-			series1.Legend = "Legend1";
-			series1.LegendText = "Main Set";
-			series1.Name = "Series2";
-			series2.ChartArea = "ChartArea1";
-			series2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-			series2.CustomProperties = "DrawingStyle=Cylinder, EmptyPointValue=Zero, PointWidth=0.7, LabelStyle=Top";
-			series2.EmptyPointStyle.CustomProperties = "DrawingStyle=Cylinder";
-			series2.Legend = "Legend1";
-			series2.LegendText = "Bonus";
-			series2.Name = "Series3";
-			this.chart2_all_freq.Series.Add(series1);
-			this.chart2_all_freq.Series.Add(series2);
+			series3.ChartArea = "ChartArea1";
+			series3.Color = System.Drawing.Color.RoyalBlue;
+			series3.CustomProperties = "DrawingStyle=Cylinder, EmptyPointValue=Zero, PointWidth=0.7, LabelStyle=Top";
+			series3.Legend = "Legend1";
+			series3.LegendText = "Main Set";
+			series3.Name = "Series2";
+			series4.ChartArea = "ChartArea1";
+			series4.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+			series4.CustomProperties = "DrawingStyle=Cylinder, EmptyPointValue=Zero, PointWidth=0.7, LabelStyle=Top";
+			series4.EmptyPointStyle.CustomProperties = "DrawingStyle=Cylinder";
+			series4.Legend = "Legend1";
+			series4.LegendText = "Bonus";
+			series4.Name = "Series3";
+			this.chart2_all_freq.Series.Add(series3);
+			this.chart2_all_freq.Series.Add(series4);
 			this.chart2_all_freq.Size = new System.Drawing.Size(716, 264);
 			this.chart2_all_freq.TabIndex = 1;
 			this.chart2_all_freq.TabStop = false;
 			this.chart2_all_freq.Text = "chart2";
-			title1.BackColor = System.Drawing.Color.Transparent;
-			title1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
-			title1.DockedToChartArea = "ChartArea1";
-			title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			title1.IsDockedInsideChartArea = false;
-			title1.Name = "Title1";
-			title1.Text = "Graph is based on Results within specified Dates.";
-			this.chart2_all_freq.Titles.Add(title1);
+			title2.BackColor = System.Drawing.Color.Transparent;
+			title2.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+			title2.DockedToChartArea = "ChartArea1";
+			title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			title2.IsDockedInsideChartArea = false;
+			title2.Name = "Title1";
+			title2.Text = "Graph is based on Results within specified Dates.";
+			this.chart2_all_freq.Titles.Add(title2);
 			// 
 			// tabPage3
 			// 
@@ -524,10 +524,10 @@
             this.columnHeader21,
             this.columnHeader9,
             this.columnHeader12});
+			this.listView1_PredChosen.Cursor = System.Windows.Forms.Cursors.Hand;
 			this.listView1_PredChosen.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.listView1_PredChosen.FullRowSelect = true;
 			this.listView1_PredChosen.GridLines = true;
-			this.listView1_PredChosen.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
 			this.listView1_PredChosen.HideSelection = false;
 			this.listView1_PredChosen.Location = new System.Drawing.Point(0, 0);
 			this.listView1_PredChosen.Name = "listView1_PredChosen";
@@ -535,6 +535,7 @@
 			this.listView1_PredChosen.TabIndex = 0;
 			this.listView1_PredChosen.UseCompatibleStateImageBehavior = false;
 			this.listView1_PredChosen.View = System.Windows.Forms.View.Details;
+			this.listView1_PredChosen.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_PredChosen_ColumnClick);
 			this.listView1_PredChosen.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_PredChosen_ItemSelectionChanged);
 			// 
 			// columnHeader8
@@ -607,7 +608,7 @@
 			// columnHeader10
 			// 
 			this.columnHeader10.Text = "Preditions";
-			this.columnHeader10.Width = 59;
+			this.columnHeader10.Width = 99;
 			// 
 			// statusStrip1_info
 			// 

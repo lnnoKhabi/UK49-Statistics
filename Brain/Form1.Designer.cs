@@ -301,7 +301,7 @@
             this.Import_Both_ToolStripMenuItem1});
 			this.toolStripMenuItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem4.Image")));
 			this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-			this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItem4.Size = new System.Drawing.Size(166, 22);
 			this.toolStripMenuItem4.Text = "Import";
 			// 
 			// lunchtimeToolStripMenuItem
@@ -363,7 +363,7 @@
 			// 
 			this.toolStripMenuItem5_UpdateNums.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem5_UpdateNums.Image")));
 			this.toolStripMenuItem5_UpdateNums.Name = "toolStripMenuItem5_UpdateNums";
-			this.toolStripMenuItem5_UpdateNums.Size = new System.Drawing.Size(180, 22);
+			this.toolStripMenuItem5_UpdateNums.Size = new System.Drawing.Size(166, 22);
 			this.toolStripMenuItem5_UpdateNums.Text = "Get Latest Results";
 			this.toolStripMenuItem5_UpdateNums.Click += new System.EventHandler(this.toolStripMenuItem5_UpdateNums_Click);
 			// 
@@ -747,7 +747,7 @@
 			this.MinimumSize = new System.Drawing.Size(816, 489);
 			this.Name = "Form1";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "49\'s Brain";
+			this.Text = "021/.";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 			this.Shown += new System.EventHandler(this.Form1_Shown);
 			this.tableLayoutPanel2_boxes.ResumeLayout(false);

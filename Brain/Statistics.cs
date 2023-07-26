@@ -15,6 +15,7 @@ namespace Brain
 	{
 		private Dictionary<string, List<string>> date_AND_combination;
 		bool imported = false;
+		List<ListViewItem> allitems = new List<ListViewItem>(49);
 
 
 		public Statistics()
@@ -102,6 +103,7 @@ namespace Brain
 			listView1_Table.Items.Clear();
 
 			listView1_PredChosen.Items.Clear();
+			listView1_ActualPred.Items.Clear();
 		}
 
 		private void DrawFrequencyGraph()
@@ -146,6 +148,38 @@ namespace Brain
 			}
 		}
 
+		private void ActualPred()
+		{
+
+			Dictionary<string, List<string>> Numbers = new Dictionary<string, List<string>>(date_AND_combination);
+			HashSet<int> duplicate = new HashSet<int>();
+
+			int date = Numbers.Count - (DateTime.Parse(Numbers.Keys.ElementAt(Numbers.Count-1)).Subtract(dateTimePicker2_to.Value.Date).Days + 1);
+	
+			foreach (string num in Numbers.Values.ElementAt(date))
+			{
+				int n = int.Parse(num);
+				HashSet<int> possible5 = new HashSet<int>(5);
+				if (duplicate.Add(n) == true)
+					possible5.Add(n);
+				if (duplicate.Add(n-1) == true)
+					possible5.Add(n-1);
+				if (duplicate.Add(n+1) == true)
+					possible5.Add(n+1);
+				if (duplicate.Add(n-10) == true)
+					possible5.Add(n-10);
+				if (duplicate.Add(n+10) == true)
+					possible5.Add(n+10);
+
+				possible5 = possible5.Where(a => a > 0).Where(b => b < 50).ToHashSet();//numbers are  1-49
+
+
+				listView1_ActualPred.Items.Add(string.Join(", " ,possible5.ToArray()));
+			}
+
+			listView1_ActualPred.Columns[0].Text = "Predictions " + $"({duplicate.Count})";
+		}
+
 		private void Generate_Info()
 		{
 			//try
@@ -158,6 +192,7 @@ namespace Brain
 					NumbersStats();
 					//listView1_ActualPred.Items.Add($"{Prediction()}");
 					LottoNumbersDotComPrediction();
+					ActualPred();
 					toolStripStatusLabel1_info_label.Text = "Complete.";
 
 				}
@@ -499,10 +534,14 @@ namespace Brain
 			int index = -1;
 			int indx = -1;
 			int overall = 0;
+
+			allitems = new List<ListViewItem>(49);
+
 			for ( int i = 1; i < 50; i++ )
 			{
 				int sum = 0;
 				ListViewItem lvi = listView1_PredChosen.Items.Add(i.ToString());
+				
 				lvi.UseItemStyleForSubItems = false;
 				List<int> l = new List<int>();
 				for ( int j = 0; j < 7; j++ )
@@ -522,25 +561,53 @@ namespace Brain
 				//lvi.SubItems[0].BackColor = Color.Aquamarine;
 				index = sum > best_sum ? i - 1:index;
 				best_sum = sum > best_sum ? sum : best_sum;
-				lvi.SubItems.Add(sum.ToString());
+				lvi.SubItems.Add(sum.ToString());//total
+				lvi.ToolTipText = sum.ToString();
 
 				int ov = Numbers.Values.Where(a => a.Contains(i.ToString())).Count();
 				indx = ov > overall ? i-1 : indx;
 				overall = ov > overall ? ov : overall;
-				lvi.SubItems.Add(ov.ToString());
+				lvi.SubItems.Add(ov.ToString());//overall frequency
 				double avg = ( double ) ( sum / 7 );
-				lvi.SubItems.Add(Math.Floor(avg ).ToString());
-				lvi.SubItems.Add(l.Where(a => a < avg).Count().ToString());
+				lvi.SubItems.Add(Math.Floor(avg ).ToString());//average
+				lvi.SubItems.Add(l.Where(a => a < avg).Count().ToString());//less than average
 
+				allitems.Add(lvi);
 			}
 			listView1_PredChosen.Items[ index ].SubItems[ 8 ].BackColor = Color.LimeGreen;
 			listView1_PredChosen.Items[ indx ].SubItems[ 9 ].BackColor = Color.Lime;
+
+			
 		}
 
 		private void listView1_PredChosen_ItemSelectionChanged( object sender, ListViewItemSelectionChangedEventArgs e )
 		{
 			toolStripStatusLabel1_info_label.Text = $"{listView1_PredChosen.SelectedItems.Count} item(s) selected.";
 
+		}
+
+
+		private void listView1_PredChosen_ColumnClick(object sender, ColumnClickEventArgs e)
+		{
+			if(e.Column == 8)//total column
+			{
+				listView1_PredChosen.Items.Clear();
+				//sort all items
+				allitems = allitems.OrderByDescending(a => int.Parse(a.ToolTipText)).ToList();
+				//add
+				listView1_PredChosen.Items.AddRange(allitems.ToArray());
+				toolStripStatusLabel1_info_label.Text = "Sorted by Total";
+			}
+			if(e.Column == 0)
+			{
+				listView1_PredChosen.Items.Clear();
+				//sort all items
+				allitems = allitems.OrderBy(a => int.Parse(a.Text)).ToList();
+				//add
+				listView1_PredChosen.Items.AddRange(allitems.ToArray());
+				toolStripStatusLabel1_info_label.Text = "Sorted by Number";
+
+			}
 		}
 	}
 }
