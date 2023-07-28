@@ -160,15 +160,15 @@ namespace Brain
 			{
 				int n = int.Parse(num);
 				HashSet<int> possible5 = new HashSet<int>(5);
-				if (duplicate.Add(n) == true)
+				if (duplicate.Add(n))
 					possible5.Add(n);
-				if (duplicate.Add(n-1) == true)
+				if (duplicate.Add(n-1))
 					possible5.Add(n-1);
-				if (duplicate.Add(n+1) == true)
+				if (duplicate.Add(n+1))
 					possible5.Add(n+1);
-				if (duplicate.Add(n-10) == true)
+				if (duplicate.Add(n-10))
 					possible5.Add(n-10);
-				if (duplicate.Add(n+10) == true)
+				if (duplicate.Add(n+10))
 					possible5.Add(n+10);
 
 				possible5 = possible5.Where(a => a > 0).Where(b => b < 50).ToHashSet();//numbers are  1-49
@@ -177,7 +177,7 @@ namespace Brain
 				listView1_ActualPred.Items.Add(string.Join(", " ,possible5.ToArray()));
 			}
 
-			listView1_ActualPred.Columns[0].Text = "Predictions " + $"({duplicate.Count})";
+			listView1_ActualPred.Columns[0].Text = "Predictions " + $"({duplicate.Where(a => a > 0).Where(b => b < 50).Count()})";
 		}
 
 		private void Generate_Info()
@@ -596,7 +596,7 @@ namespace Brain
 				allitems = allitems.OrderByDescending(a => int.Parse(a.ToolTipText)).ToList();
 				//add
 				listView1_PredChosen.Items.AddRange(allitems.ToArray());
-				toolStripStatusLabel1_info_label.Text = "Sorted by Total";
+				toolStripStatusLabel1_info_label.Text = "Sorted by total";
 			}
 			if(e.Column == 0)
 			{
@@ -605,7 +605,7 @@ namespace Brain
 				allitems = allitems.OrderBy(a => int.Parse(a.Text)).ToList();
 				//add
 				listView1_PredChosen.Items.AddRange(allitems.ToArray());
-				toolStripStatusLabel1_info_label.Text = "Sorted by Number";
+				toolStripStatusLabel1_info_label.Text = "Sorted by number";
 
 			}
 		}
