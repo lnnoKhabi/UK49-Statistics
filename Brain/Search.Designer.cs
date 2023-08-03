@@ -34,6 +34,7 @@
 			System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
 			System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+			System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
 			System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
 			this.listView1_Numbers = new System.Windows.Forms.ListView();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -276,7 +277,7 @@
 			chartArea1.AxisX.ScrollBar.ButtonColor = System.Drawing.Color.White;
 			chartArea1.AxisX.ScrollBar.LineColor = System.Drawing.Color.Black;
 			chartArea1.AxisX.ScrollBar.Size = 20D;
-			chartArea1.AxisX.Title = "Numbers";
+			chartArea1.AxisX.Title = "Number";
 			chartArea1.AxisX.TitleFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			chartArea1.AxisX.TitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			customLabel1.ForeColor = System.Drawing.Color.Black;
@@ -321,7 +322,7 @@
 			chartArea1.Name = "ChartArea1";
 			this.chart1.ChartAreas.Add(chartArea1);
 			this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
-			legend1.BackColor = System.Drawing.Color.White;
+			legend1.BackColor = System.Drawing.Color.Transparent;
 			legend1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			legend1.DockedToChartArea = "ChartArea1";
 			legend1.LegendStyle = System.Windows.Forms.DataVisualization.Charting.LegendStyle.Column;
@@ -351,8 +352,14 @@
 			series2.Legend = "Legend1";
 			series2.LegendText = "Bonus";
 			series2.Name = "Series3";
+			series3.ChartArea = "ChartArea1";
+			series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+			series3.Color = System.Drawing.Color.Fuchsia;
+			series3.Legend = "Legend1";
+			series3.Name = "Overall";
 			this.chart1.Series.Add(series1);
 			this.chart1.Series.Add(series2);
+			this.chart1.Series.Add(series3);
 			this.chart1.Size = new System.Drawing.Size(664, 271);
 			this.chart1.TabIndex = 0;
 			this.chart1.TabStop = false;

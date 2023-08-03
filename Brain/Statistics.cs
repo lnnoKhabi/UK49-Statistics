@@ -97,6 +97,7 @@ namespace Brain
 		{
 			chart2_all_freq.Series[ 0 ].Points.Clear();
 			chart2_all_freq.Series[ 1 ].Points.Clear();
+			chart2_all_freq.Series[ 2 ].Points.Clear();
 
 			listView1_Cycle.Items.Clear();
 
@@ -138,6 +139,9 @@ namespace Brain
 			{
 				//draw chart info for main numbers
 				chart2_all_freq.Series[ 0 ].Points.AddXY(num, num_playcount_all[ num ] - num_playcount_all_bonus[ num ]);
+
+				//draw overall frequency
+				chart2_all_freq.Series[2].Points.AddXY(num, num_playcount_all[num]);
 			}
 
 			//draw bonus numbers for all numbers

@@ -63,6 +63,7 @@ namespace Brain
 
 							chart1.Series[0].Points.Clear();
 							chart1.Series[1].Points.Clear();
+							chart1.Series[2].Points.Clear();
 
 							Dictionary<int, int> num_playcount = new Dictionary<int, int>();
 							Dictionary<int, int> num_playcount_bonus = new Dictionary<int, int>();
@@ -109,6 +110,8 @@ namespace Brain
 							{
 								//draw chart info for main numbers
 								chart1.Series[ 0 ].Points.AddXY(num, num_playcount[ num ] - num_playcount_bonus[ num ]);
+								chart1.Series[2].Points.AddXY(num, num_playcount[num]);
+
 							}
 							foreach ( int num in num_playcount_bonus.Keys )
 							{
