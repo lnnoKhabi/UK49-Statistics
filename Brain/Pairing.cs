@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Linq;
+using System.Numerics;
 using System.Windows.Forms;
 
 namespace Brain
@@ -13,7 +14,7 @@ namespace Brain
 			toolStripStatusLabel1_text.Text = "Enter numbers separated by commas.";
 
 		}
-
+		
 		private void button1_Pair_Click( object sender, EventArgs e )
 		{
 			Pair();
@@ -138,5 +139,42 @@ namespace Brain
 			}
 			toolStripStatusLabel1_text.Text = "Done.";
 		}
+
+		private void button1_clear_Click(object sender, EventArgs e)
+		{
+			if(!string.IsNullOrEmpty(textBox1_n_objects.Text))
+			{
+				textBox1_n_objects.Text = string.Empty;
+			}
+			if (!string.IsNullOrEmpty(textBox1_r_sample.Text))
+			{
+				textBox1_r_sample.Text = string.Empty;
+			}
+		}
+
+		private void button1_calculate_Click(object sender, EventArgs e)
+		{
+			if (!string.IsNullOrEmpty(textBox1_n_objects.Text))
+			{
+				if (!string.IsNullOrEmpty(textBox1_r_sample.Text))
+				{
+					//
+					int n = int.Parse(textBox1_n_objects.Text);
+					int r = int.Parse(textBox1_r_sample.Text);
+					BigInteger ans = fact(n) / (fact(r)  * fact(n-r));
+					label4_Answer.Text = ans.ToString();
+				}
+			}
+			
+		}
+
+		public static BigInteger fact(BigInteger n)
+		{
+			if(n == 1)
+			{
+				return 1;
+			}
+			return n * fact(n - 1);
+		} 
 	}
 }

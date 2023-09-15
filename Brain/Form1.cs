@@ -648,7 +648,8 @@ namespace Brain
                     }
                     else
                     {
-                        DialogResult dr = MessageBox.Show($"Numbers on [{dateTimePicker1_Date.Value.Day} {ConvertToMonth(dateTimePicker1_Date.Value.Month)} {dateTimePicker1_Date.Value.Year}] were previously added. Do you want to add them again?", "Duplicate Numbers", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DateTime date = DateTime.Parse(result.date);
+                        DialogResult dr = MessageBox.Show($"Numbers on [{date.Day} {ConvertToMonth(date.Month)} {date.Year}] were previously added. Do you want to add them again?", "Duplicate Numbers", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if ( dr == DialogResult.No )
                         {
                             CanAdd = false;

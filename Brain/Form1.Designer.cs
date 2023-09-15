@@ -747,7 +747,7 @@
 			this.MinimumSize = new System.Drawing.Size(816, 489);
 			this.Name = "Form1";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "021/.";
+			this.Text = "UK49 Tool";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
 			this.Shown += new System.EventHandler(this.Form1_Shown);
 			this.tableLayoutPanel2_boxes.ResumeLayout(false);
