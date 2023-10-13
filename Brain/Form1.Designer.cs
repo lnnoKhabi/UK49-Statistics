@@ -65,9 +65,6 @@
 			this.columnHeader1_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader2_output = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.tabControl1_with_listviews = new System.Windows.Forms.TabControl();
-			this.contextMenuStrip_UnsortedRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.sortNumbersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.refreshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.tabPage1 = new System.Windows.Forms.TabPage();
 			this.listView1_Date_and_Numbers = new System.Windows.Forms.ListView();
 			this.columnHeader1_Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -96,7 +93,6 @@
 			this.tableLayoutPanel2_boxes.SuspendLayout();
 			this.menuStrip1_Toolbar.SuspendLayout();
 			this.tabControl1_with_listviews.SuspendLayout();
-			this.contextMenuStrip_UnsortedRightClick.SuspendLayout();
 			this.tabPage1.SuspendLayout();
 			this.contextMenuStrip1_RightClickMenu.SuspendLayout();
 			this.tabPage2.SuspendLayout();
@@ -384,6 +380,7 @@
 			// 
 			// toolStripMenuItem6
 			// 
+			this.toolStripMenuItem6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
 			this.toolStripMenuItem6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.searchToolStripMenuItem1,
             this.readerToolStripMenuItem,
@@ -396,9 +393,11 @@
 			// 
 			// searchToolStripMenuItem1
 			// 
+			this.searchToolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
 			this.searchToolStripMenuItem1.Name = "searchToolStripMenuItem1";
 			this.searchToolStripMenuItem1.Size = new System.Drawing.Size(143, 22);
 			this.searchToolStripMenuItem1.Text = "Search";
+			this.searchToolStripMenuItem1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
 			this.searchToolStripMenuItem1.Click += new System.EventHandler(this.searchToolStripMenuItem1_Click);
 			// 
 			// readerToolStripMenuItem
@@ -462,7 +461,6 @@
 			// 
 			// tabControl1_with_listviews
 			// 
-			this.tabControl1_with_listviews.ContextMenuStrip = this.contextMenuStrip_UnsortedRightClick;
 			this.tabControl1_with_listviews.Controls.Add(this.tabPage1);
 			this.tabControl1_with_listviews.Controls.Add(this.tabPage2);
 			this.tabControl1_with_listviews.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -473,28 +471,6 @@
 			this.tabControl1_with_listviews.Size = new System.Drawing.Size(816, 300);
 			this.tabControl1_with_listviews.TabIndex = 23;
 			this.tabControl1_with_listviews.TabStop = false;
-			// 
-			// contextMenuStrip_UnsortedRightClick
-			// 
-			this.contextMenuStrip_UnsortedRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sortNumbersToolStripMenuItem,
-            this.refreshToolStripMenuItem});
-			this.contextMenuStrip_UnsortedRightClick.Name = "contextMenuStrip_UnsortedRightClick";
-			this.contextMenuStrip_UnsortedRightClick.Size = new System.Drawing.Size(114, 48);
-			// 
-			// sortNumbersToolStripMenuItem
-			// 
-			this.sortNumbersToolStripMenuItem.Name = "sortNumbersToolStripMenuItem";
-			this.sortNumbersToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-			this.sortNumbersToolStripMenuItem.Text = "Sort";
-			this.sortNumbersToolStripMenuItem.Click += new System.EventHandler(this.sortNumbersToolStripMenuItem_Click);
-			// 
-			// refreshToolStripMenuItem
-			// 
-			this.refreshToolStripMenuItem.Name = "refreshToolStripMenuItem";
-			this.refreshToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
-			this.refreshToolStripMenuItem.Text = "Refresh";
-			this.refreshToolStripMenuItem.Click += new System.EventHandler(this.refreshToolStripMenuItem_Click);
 			// 
 			// tabPage1
 			// 
@@ -664,6 +640,7 @@
 			this.listView1_Unsorted.TabStop = false;
 			this.listView1_Unsorted.UseCompatibleStateImageBehavior = false;
 			this.listView1_Unsorted.View = System.Windows.Forms.View.Details;
+			this.listView1_Unsorted.ColumnClick += new System.Windows.Forms.ColumnClickEventHandler(this.listView1_Unsorted_ColumnClick);
 			// 
 			// columnHeader6_numbering
 			// 
@@ -755,7 +732,6 @@
 			this.menuStrip1_Toolbar.ResumeLayout(false);
 			this.menuStrip1_Toolbar.PerformLayout();
 			this.tabControl1_with_listviews.ResumeLayout(false);
-			this.contextMenuStrip_UnsortedRightClick.ResumeLayout(false);
 			this.tabPage1.ResumeLayout(false);
 			this.contextMenuStrip1_RightClickMenu.ResumeLayout(false);
 			this.tabPage2.ResumeLayout(false);
@@ -810,9 +786,6 @@
 		private System.Windows.Forms.ListView listView1_Unsorted;
 		private System.Windows.Forms.ColumnHeader columnHeader3_date;
 		private System.Windows.Forms.ColumnHeader columnHeader4_comb;
-		private System.Windows.Forms.ContextMenuStrip contextMenuStrip_UnsortedRightClick;
-		private System.Windows.Forms.ToolStripMenuItem sortNumbersToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem refreshToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
 		private System.Windows.Forms.ColumnHeader columnHeader3_State;

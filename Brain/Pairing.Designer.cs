@@ -30,6 +30,8 @@ namespace Brain
 		private void InitializeComponent()
 		{
 			this.tableLayoutPanel1_Main = new System.Windows.Forms.TableLayoutPanel();
+			this.statusStrip1_Info = new System.Windows.Forms.StatusStrip();
+			this.toolStripStatusLabel1_text = new System.Windows.Forms.ToolStripStatusLabel();
 			this.listView1_Pairings = new System.Windows.Forms.ListView();
 			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -37,23 +39,21 @@ namespace Brain
 			this.richTextBox1_TypeNums = new System.Windows.Forms.RichTextBox();
 			this.button1_Pair = new System.Windows.Forms.Button();
 			this.comboBox1_PairIn = new System.Windows.Forms.ComboBox();
-			this.statusStrip1_Info = new System.Windows.Forms.StatusStrip();
-			this.toolStripStatusLabel1_text = new System.Windows.Forms.ToolStripStatusLabel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+			this.label3_sample = new System.Windows.Forms.Label();
 			this.label2_objects = new System.Windows.Forms.Label();
 			this.textBox1_n_objects = new System.Windows.Forms.TextBox();
 			this.textBox1_r_sample = new System.Windows.Forms.TextBox();
-			this.label3_sample = new System.Windows.Forms.Label();
+			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.button1_clear = new System.Windows.Forms.Button();
 			this.button1_calculate = new System.Windows.Forms.Button();
 			this.label4_Answer = new System.Windows.Forms.Label();
-			this.label2 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1_Main.SuspendLayout();
-			this.tableLayoutPanel1.SuspendLayout();
 			this.statusStrip1_Info.SuspendLayout();
+			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
@@ -77,6 +77,21 @@ namespace Brain
 			this.tableLayoutPanel1_Main.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel1_Main.Size = new System.Drawing.Size(684, 361);
 			this.tableLayoutPanel1_Main.TabIndex = 0;
+			// 
+			// statusStrip1_Info
+			// 
+			this.statusStrip1_Info.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1_text});
+			this.statusStrip1_Info.Location = new System.Drawing.Point(0, 340);
+			this.statusStrip1_Info.Name = "statusStrip1_Info";
+			this.statusStrip1_Info.Size = new System.Drawing.Size(684, 21);
+			this.statusStrip1_Info.TabIndex = 1;
+			this.statusStrip1_Info.Text = "statusStrip1";
+			// 
+			// toolStripStatusLabel1_text
+			// 
+			this.toolStripStatusLabel1_text.Name = "toolStripStatusLabel1_text";
+			this.toolStripStatusLabel1_text.Size = new System.Drawing.Size(0, 16);
 			// 
 			// listView1_Pairings
 			// 
@@ -125,10 +140,10 @@ namespace Brain
 			// 
 			// richTextBox1_TypeNums
 			// 
+			this.richTextBox1_TypeNums.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.richTextBox1_TypeNums.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.richTextBox1_TypeNums.CausesValidation = false;
 			this.richTextBox1_TypeNums.DetectUrls = false;
-			this.richTextBox1_TypeNums.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.richTextBox1_TypeNums.Location = new System.Drawing.Point(3, 3);
 			this.richTextBox1_TypeNums.MaxLength = 150;
 			this.richTextBox1_TypeNums.Multiline = false;
@@ -141,7 +156,7 @@ namespace Brain
 			// 
 			// button1_Pair
 			// 
-			this.button1_Pair.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.button1_Pair.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.button1_Pair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.button1_Pair.Location = new System.Drawing.Point(536, 3);
 			this.button1_Pair.Name = "button1_Pair";
@@ -166,21 +181,6 @@ namespace Brain
 			this.comboBox1_PairIn.TabIndex = 3;
 			this.comboBox1_PairIn.Text = "Choose";
 			// 
-			// statusStrip1_Info
-			// 
-			this.statusStrip1_Info.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1_text});
-			this.statusStrip1_Info.Location = new System.Drawing.Point(0, 340);
-			this.statusStrip1_Info.Name = "statusStrip1_Info";
-			this.statusStrip1_Info.Size = new System.Drawing.Size(684, 21);
-			this.statusStrip1_Info.TabIndex = 1;
-			this.statusStrip1_Info.Text = "statusStrip1";
-			// 
-			// toolStripStatusLabel1_text
-			// 
-			this.toolStripStatusLabel1_text.Name = "toolStripStatusLabel1_text";
-			this.toolStripStatusLabel1_text.Size = new System.Drawing.Size(0, 16);
-			// 
 			// tableLayoutPanel2
 			// 
 			this.tableLayoutPanel2.ColumnCount = 2;
@@ -198,6 +198,19 @@ namespace Brain
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.95834F));
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(678, 96);
 			this.tableLayoutPanel2.TabIndex = 2;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.label2.Location = new System.Drawing.Point(342, 0);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(64, 24);
+			this.label2.TabIndex = 3;
+			this.label2.Text = "Calculator";
+			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// label1
 			// 
@@ -217,7 +230,7 @@ namespace Brain
 			this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
 			this.tableLayoutPanel3.ColumnCount = 2;
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 167F));
 			this.tableLayoutPanel3.Controls.Add(this.label3_sample, 0, 1);
 			this.tableLayoutPanel3.Controls.Add(this.label2_objects, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.textBox1_n_objects, 1, 0);
@@ -230,6 +243,46 @@ namespace Brain
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(333, 66);
 			this.tableLayoutPanel3.TabIndex = 1;
+			// 
+			// label3_sample
+			// 
+			this.label3_sample.AutoSize = true;
+			this.label3_sample.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label3_sample.Location = new System.Drawing.Point(4, 33);
+			this.label3_sample.Name = "label3_sample";
+			this.label3_sample.Size = new System.Drawing.Size(157, 32);
+			this.label3_sample.TabIndex = 3;
+			this.label3_sample.Text = "r (sample)";
+			this.label3_sample.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label2_objects
+			// 
+			this.label2_objects.AutoSize = true;
+			this.label2_objects.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label2_objects.Location = new System.Drawing.Point(4, 1);
+			this.label2_objects.Name = "label2_objects";
+			this.label2_objects.Size = new System.Drawing.Size(157, 31);
+			this.label2_objects.TabIndex = 0;
+			this.label2_objects.Text = "n (objects)";
+			this.label2_objects.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// textBox1_n_objects
+			// 
+			this.textBox1_n_objects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBox1_n_objects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.textBox1_n_objects.Location = new System.Drawing.Point(168, 6);
+			this.textBox1_n_objects.Name = "textBox1_n_objects";
+			this.textBox1_n_objects.Size = new System.Drawing.Size(161, 20);
+			this.textBox1_n_objects.TabIndex = 1;
+			// 
+			// textBox1_r_sample
+			// 
+			this.textBox1_r_sample.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.textBox1_r_sample.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.textBox1_r_sample.Location = new System.Drawing.Point(168, 39);
+			this.textBox1_r_sample.Name = "textBox1_r_sample";
+			this.textBox1_r_sample.Size = new System.Drawing.Size(161, 20);
+			this.textBox1_r_sample.TabIndex = 2;
 			// 
 			// tableLayoutPanel4
 			// 
@@ -248,46 +301,6 @@ namespace Brain
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel4.Size = new System.Drawing.Size(333, 66);
 			this.tableLayoutPanel4.TabIndex = 2;
-			// 
-			// label2_objects
-			// 
-			this.label2_objects.AutoSize = true;
-			this.label2_objects.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label2_objects.Location = new System.Drawing.Point(4, 1);
-			this.label2_objects.Name = "label2_objects";
-			this.label2_objects.Size = new System.Drawing.Size(158, 31);
-			this.label2_objects.TabIndex = 0;
-			this.label2_objects.Text = "n (objects)";
-			this.label2_objects.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// textBox1_n_objects
-			// 
-			this.textBox1_n_objects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1_n_objects.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox1_n_objects.Location = new System.Drawing.Point(169, 6);
-			this.textBox1_n_objects.Name = "textBox1_n_objects";
-			this.textBox1_n_objects.Size = new System.Drawing.Size(160, 20);
-			this.textBox1_n_objects.TabIndex = 1;
-			// 
-			// textBox1_r_sample
-			// 
-			this.textBox1_r_sample.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox1_r_sample.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox1_r_sample.Location = new System.Drawing.Point(169, 39);
-			this.textBox1_r_sample.Name = "textBox1_r_sample";
-			this.textBox1_r_sample.Size = new System.Drawing.Size(160, 20);
-			this.textBox1_r_sample.TabIndex = 2;
-			// 
-			// label3_sample
-			// 
-			this.label3_sample.AutoSize = true;
-			this.label3_sample.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label3_sample.Location = new System.Drawing.Point(4, 33);
-			this.label3_sample.Name = "label3_sample";
-			this.label3_sample.Size = new System.Drawing.Size(158, 32);
-			this.label3_sample.TabIndex = 3;
-			this.label3_sample.Text = "r (sample)";
-			this.label3_sample.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// button1_clear
 			// 
@@ -323,19 +336,6 @@ namespace Brain
 			this.label4_Answer.TabIndex = 2;
 			this.label4_Answer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// label2
-			// 
-			this.label2.AutoSize = true;
-			this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-			this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.label2.Location = new System.Drawing.Point(342, 0);
-			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(64, 24);
-			this.label2.TabIndex = 3;
-			this.label2.Text = "Calculator";
-			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
 			// Pairing
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,9 +348,9 @@ namespace Brain
 			this.Text = "Pairing";
 			this.tableLayoutPanel1_Main.ResumeLayout(false);
 			this.tableLayoutPanel1_Main.PerformLayout();
-			this.tableLayoutPanel1.ResumeLayout(false);
 			this.statusStrip1_Info.ResumeLayout(false);
 			this.statusStrip1_Info.PerformLayout();
+			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
 			this.tableLayoutPanel3.ResumeLayout(false);
