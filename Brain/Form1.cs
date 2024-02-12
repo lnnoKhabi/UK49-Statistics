@@ -1341,17 +1341,23 @@ namespace Brain
 
                         HttpClient client = new HttpClient();
                         string uri = $"https://www.lottonumbers.com/past-uk-49s-{this_state}-results";
+                        //string uri = $"https://web.archive.org/web/20230529130237/https://www.lottonumbers.com/past-uk-49s-{this_state}-results"; //old lottonumbers site
                         var string_data = await client.GetStringAsync(uri);
 
                         var html_document = new HtmlAgilityPack.HtmlDocument();
                         html_document.LoadHtml(string_data);
 
-                        var Numbers = html_document.DocumentNode.Descendants("tbody")
-                            .Where(node => node.ParentNode.GetAttributeValue("class", "")
-                            .Equals("lotteryTable"))
+						//var Numbers = html_document.DocumentNode.Descendants("tbody")
+						//	.Where(node => node.ParentNode.GetAttributeValue("class", "")
+						//	.Equals("lotteryTable"))
+						//	.ToList();//for old lottonumbers site
+
+						var Numbers = html_document.DocumentNode.Descendants("tbody")//a child
+							.Where(node => node.ParentNode.GetAttributeValue("class", "")//with parent
+							.Equals("mobFormat past-results basic"))//with class mobFormat past-results basic
                             .ToList();
 
-                        var NumbersList = Numbers[0].Descendants("tr").ToList();
+						var NumbersList = Numbers[0].Descendants("tr").ToList();//convert to list of results
 
                         List<string> Wrong_Output = new List<string>();
 
@@ -1361,12 +1367,12 @@ namespace Brain
                             foreach (string str in s)
                             {
                                 string st = str.Trim();//remove spaces
-                                if (st.Length >= 5)
+                                if (st.Length >= 5)//if its date 
                                 {
                                     st = st.Substring(st.IndexOf(" ") + 1); //remove day of week
                                     st = st.Remove(st.IndexOf(" ") - 2, 2); //remove formating (st,nd,rt,th)
                                 }
-                                if (!string.IsNullOrWhiteSpace(st))
+                                else if (!string.IsNullOrWhiteSpace(st))
                                 {
                                     Wrong_Output.Add(st);
                                 }
@@ -1493,6 +1499,7 @@ namespace Brain
                             List<List<string>> BETA_Data = new List<List<string>>();
                             HttpClient client = new HttpClient();
                             string uri = $"https://www.lottonumbers.com/uk-49s-{this_state}-results-{year}";
+
                             var string_data = await client.GetStringAsync(uri);
 
                             var html_document = new HtmlAgilityPack.HtmlDocument();
@@ -1500,7 +1507,7 @@ namespace Brain
 
                             var Numbers = html_document.DocumentNode.Descendants("tbody")
                                 .Where(node => node.ParentNode.GetAttributeValue("class", "")
-                                .Equals("lotteryTable"))
+                                .Equals("mobFormat past-results basic"))
                                 .ToList();
 
                             var NumbersList = Numbers[0].Descendants("tr").ToList();
@@ -1510,19 +1517,22 @@ namespace Brain
                             foreach (var item in NumbersList)
                             {
                                 string[] s = item.InnerText.Split('\n');
-                                foreach (string str in s)
+                                if (s.Length > 3)
                                 {
-                                    string st = str.Trim();//remove spaces
-
-                                    if (st.Length >= 5)
+                                    foreach (string str in s)
                                     {
-                                        st = st.Substring(st.IndexOf(" ") + 1); //remove day of week
-                                        st = st.Remove(st.IndexOf(" ") - 2, 2); //remove formating (st,nd,rt,th)
+                                        string st = str.Trim();//remove spaces
 
-                                    }
-                                    if (!string.IsNullOrWhiteSpace(st))
-                                    {
-                                        Wrong_Output.Add(st);
+                                        if (st.Length >= 5)
+                                        {
+                                            st = st.Substring(st.IndexOf(" ") + 1); //remove day of week
+                                            st = st.Remove(st.IndexOf(" ") - 2, 2); //remove formating (st,nd,rt,th)
+
+                                        }
+                                        if (!string.IsNullOrWhiteSpace(st))
+                                        {
+                                            Wrong_Output.Add(st);
+                                        }
                                     }
                                 }
                             }
