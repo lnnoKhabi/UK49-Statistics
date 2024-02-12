@@ -40,7 +40,6 @@ namespace Brain
 
         public delegate void InvokeDelegate();
         string quit = null;
-        Form f;
 
         string success = null;
 
@@ -368,46 +367,7 @@ namespace Brain
             return true;
         }
         private delegate void Myd();
-        private void ShowProgress(bool add_or_remove)
-        {
-            //create status strip
-            if (add_or_remove)
-            {
-                string st = state == "L" ? "Lunchtime" : "Teatime";
-                //create form for progress bar and label
-                f = new Form();
-                f.Text = $"Progress";
-                f.Size = new Size(300, 100);
-                f.FormBorderStyle = FormBorderStyle.FixedToolWindow;
-                f.StartPosition = FormStartPosition.CenterParent;
-                f.ControlBox = false;
-                //f.TopMost = true;
-                f.MaximizeBox = false;
-                f.MinimizeBox = false;
-
-                // create label for holding text
-                Label label = new Label();
-                label.Text = $"Importing {st} results...";
-                label.Dock = DockStyle.Top;
-                //label.TextAlign = ContentAlignment.MiddleCenter;
-                label.Parent = f;
-
-                //create progress bar
-                ProgressBar progressbar = new ProgressBar();
-                progressbar.Style = ProgressBarStyle.Marquee;
-                progressbar.Padding = new Padding(0, 0, 0, 10);
-                progressbar.Dock = DockStyle.Bottom;
-                progressbar.Parent = f;
-                progressbar.MarqueeAnimationSpeed = 45;//the higher the slower 
-
-                f.ShowDialog();
-            }
-            else
-            {
-                f.BeginInvoke((Myd)delegate { f.Dispose(); });
-            }
-        }
-
+       
         private void EnableButtons(bool yes_no)
         {
             if (yes_no)
@@ -502,7 +462,7 @@ namespace Brain
                 {
                     CurrentNumbers.Add(int.Parse(text_box.Text));
                 }
-                CurrentNumbers.Sort();
+                //CurrentNumbers.Sort();
                 string NumbersString = $"{CurrentNumbers[0]}-{CurrentNumbers[1]}-{CurrentNumbers[2]}-{CurrentNumbers[3]}-{CurrentNumbers[4]}-{CurrentNumbers[5]}-{CurrentNumbers[6]}";
 
                 //check if numbers already exist
@@ -615,7 +575,7 @@ namespace Brain
                 {
                     bool CanAdd = true;
                     List<int> CurrentNumbers = new List<int> { result.first, result.second, result.third, result.forth, result.fifth, result.sixth, result.bonus };
-                    CurrentNumbers.Sort();
+                    //CurrentNumbers.Sort();
                     string NumbersString = $"{CurrentNumbers[0]}-{CurrentNumbers[1]}-{CurrentNumbers[2]}-{CurrentNumbers[3]}-{CurrentNumbers[4]}-{CurrentNumbers[5]}-{CurrentNumbers[6]}";
 
                     //check if numbers already exist

@@ -75,6 +75,16 @@
 			this.columnHeader21 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.splitContainer2_withPredictions = new System.Windows.Forms.SplitContainer();
+			this.listView_PlusMinus_Pred = new System.Windows.Forms.ListView();
+			this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader22 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader23 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader24 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader25 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader26 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader27 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader28 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.listView1_ActualPred = new System.Windows.Forms.ListView();
 			this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.statusStrip1_info = new System.Windows.Forms.StatusStrip();
@@ -92,6 +102,10 @@
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer2_withPredictions)).BeginInit();
+			this.splitContainer2_withPredictions.Panel1.SuspendLayout();
+			this.splitContainer2_withPredictions.Panel2.SuspendLayout();
+			this.splitContainer2_withPredictions.SuspendLayout();
 			this.statusStrip1_info.SuspendLayout();
 			this.toolStripContainer1.BottomToolStripPanel.SuspendLayout();
 			this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -513,9 +527,9 @@
 			// 
 			// splitContainer1.Panel2
 			// 
-			this.splitContainer1.Panel2.Controls.Add(this.listView1_ActualPred);
+			this.splitContainer1.Panel2.Controls.Add(this.splitContainer2_withPredictions);
 			this.splitContainer1.Size = new System.Drawing.Size(714, 262);
-			this.splitContainer1.SplitterDistance = 589;
+			this.splitContainer1.SplitterDistance = 455;
 			this.splitContainer1.TabIndex = 2;
 			// 
 			// listView1_PredChosen
@@ -540,7 +554,7 @@
 			this.listView1_PredChosen.HideSelection = false;
 			this.listView1_PredChosen.Location = new System.Drawing.Point(0, 0);
 			this.listView1_PredChosen.Name = "listView1_PredChosen";
-			this.listView1_PredChosen.Size = new System.Drawing.Size(589, 262);
+			this.listView1_PredChosen.Size = new System.Drawing.Size(455, 262);
 			this.listView1_PredChosen.TabIndex = 0;
 			this.listView1_PredChosen.UseCompatibleStateImageBehavior = false;
 			this.listView1_PredChosen.View = System.Windows.Forms.View.Details;
@@ -597,6 +611,88 @@
 			// 
 			this.columnHeader12.Text = "< Average";
 			// 
+			// splitContainer2_withPredictions
+			// 
+			this.splitContainer2_withPredictions.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer2_withPredictions.Location = new System.Drawing.Point(0, 0);
+			this.splitContainer2_withPredictions.Name = "splitContainer2_withPredictions";
+			this.splitContainer2_withPredictions.Orientation = System.Windows.Forms.Orientation.Horizontal;
+			// 
+			// splitContainer2_withPredictions.Panel1
+			// 
+			this.splitContainer2_withPredictions.Panel1.Controls.Add(this.listView_PlusMinus_Pred);
+			// 
+			// splitContainer2_withPredictions.Panel2
+			// 
+			this.splitContainer2_withPredictions.Panel2.Controls.Add(this.listView1_ActualPred);
+			this.splitContainer2_withPredictions.Size = new System.Drawing.Size(255, 262);
+			this.splitContainer2_withPredictions.SplitterDistance = 136;
+			this.splitContainer2_withPredictions.TabIndex = 2;
+			// 
+			// listView_PlusMinus_Pred
+			// 
+			this.listView_PlusMinus_Pred.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader13,
+            this.columnHeader22,
+            this.columnHeader23,
+            this.columnHeader24,
+            this.columnHeader25,
+            this.columnHeader26,
+            this.columnHeader27,
+            this.columnHeader28});
+			this.listView_PlusMinus_Pred.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.listView_PlusMinus_Pred.ForeColor = System.Drawing.Color.Green;
+			this.listView_PlusMinus_Pred.FullRowSelect = true;
+			this.listView_PlusMinus_Pred.GridLines = true;
+			this.listView_PlusMinus_Pred.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+			this.listView_PlusMinus_Pred.HideSelection = false;
+			this.listView_PlusMinus_Pred.Location = new System.Drawing.Point(0, 0);
+			this.listView_PlusMinus_Pred.Name = "listView_PlusMinus_Pred";
+			this.listView_PlusMinus_Pred.Size = new System.Drawing.Size(255, 136);
+			this.listView_PlusMinus_Pred.TabIndex = 2;
+			this.listView_PlusMinus_Pred.UseCompatibleStateImageBehavior = false;
+			this.listView_PlusMinus_Pred.View = System.Windows.Forms.View.Details;
+			// 
+			// columnHeader13
+			// 
+			this.columnHeader13.Text = "Ball Position";
+			this.columnHeader13.Width = 79;
+			// 
+			// columnHeader22
+			// 
+			this.columnHeader22.Text = "1st";
+			this.columnHeader22.Width = 36;
+			// 
+			// columnHeader23
+			// 
+			this.columnHeader23.Text = "2nd";
+			this.columnHeader23.Width = 36;
+			// 
+			// columnHeader24
+			// 
+			this.columnHeader24.Text = "3rd";
+			this.columnHeader24.Width = 36;
+			// 
+			// columnHeader25
+			// 
+			this.columnHeader25.Text = "4th";
+			this.columnHeader25.Width = 36;
+			// 
+			// columnHeader26
+			// 
+			this.columnHeader26.Text = "5th";
+			this.columnHeader26.Width = 36;
+			// 
+			// columnHeader27
+			// 
+			this.columnHeader27.Text = "6th";
+			this.columnHeader27.Width = 36;
+			// 
+			// columnHeader28
+			// 
+			this.columnHeader28.Text = "7th (bonus)";
+			this.columnHeader28.Width = 72;
+			// 
 			// listView1_ActualPred
 			// 
 			this.listView1_ActualPred.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -609,7 +705,7 @@
 			this.listView1_ActualPred.HideSelection = false;
 			this.listView1_ActualPred.Location = new System.Drawing.Point(0, 0);
 			this.listView1_ActualPred.Name = "listView1_ActualPred";
-			this.listView1_ActualPred.Size = new System.Drawing.Size(121, 262);
+			this.listView1_ActualPred.Size = new System.Drawing.Size(255, 122);
 			this.listView1_ActualPred.TabIndex = 1;
 			this.listView1_ActualPred.UseCompatibleStateImageBehavior = false;
 			this.listView1_ActualPred.View = System.Windows.Forms.View.Details;
@@ -688,6 +784,10 @@
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
 			this.splitContainer1.ResumeLayout(false);
+			this.splitContainer2_withPredictions.Panel1.ResumeLayout(false);
+			this.splitContainer2_withPredictions.Panel2.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.splitContainer2_withPredictions)).EndInit();
+			this.splitContainer2_withPredictions.ResumeLayout(false);
 			this.statusStrip1_info.ResumeLayout(false);
 			this.statusStrip1_info.PerformLayout();
 			this.toolStripContainer1.BottomToolStripPanel.ResumeLayout(false);
@@ -743,5 +843,15 @@
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.ColumnHeader columnHeader9;
 		private System.Windows.Forms.ColumnHeader columnHeader12;
+		private System.Windows.Forms.SplitContainer splitContainer2_withPredictions;
+		private System.Windows.Forms.ListView listView_PlusMinus_Pred;
+		private System.Windows.Forms.ColumnHeader columnHeader13;
+		private System.Windows.Forms.ColumnHeader columnHeader22;
+		private System.Windows.Forms.ColumnHeader columnHeader23;
+		private System.Windows.Forms.ColumnHeader columnHeader24;
+		private System.Windows.Forms.ColumnHeader columnHeader25;
+		private System.Windows.Forms.ColumnHeader columnHeader26;
+		private System.Windows.Forms.ColumnHeader columnHeader27;
+		private System.Windows.Forms.ColumnHeader columnHeader28;
 	}
 }

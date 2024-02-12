@@ -105,6 +105,9 @@ namespace Brain
 
 			listView1_PredChosen.Items.Clear();
 			listView1_ActualPred.Items.Clear();
+
+			listView_PlusMinus_Pred.Items.Clear();
+
 		}
 
 		private void DrawFrequencyGraph()
@@ -154,7 +157,91 @@ namespace Brain
 
 		private void ActualPred()
 		{
+			Dictionary<string, List<string>> NumsPlusMinus = new Dictionary<string, List<string>>(date_AND_combination
+						.Where(a => DateTime.Parse(a.Key) >= dateTimePicker1_from.Value)
+						.Where(b => DateTime.Parse(b.Key) <= dateTimePicker2_to.Value)
+						.ToDictionary(c => c.Key, d => d.Value)
+						);
+			//zero_count = index 0 in dict  values array
+			//plus1_count = index 1 in dict values array
+			//minus1_count = index 2 in dict values array
+			//plus10_count = index 3 in dict values array
+			//minus10_count = index 4 in dict values array
+			Dictionary<int, int[]> res = new Dictionary<int, int[]>() {
+				{ 1, new int[5] },
+				{ 2, new int[5] },
+				{ 3, new int[5] },
+				{ 4, new int[5] },
+				{ 5, new int[5] },
+				{ 6, new int[5] },
+				{ 7, new int[5] }
+			};
 
+			//show stats for plus/minus in past results
+			for (int i = 0; i < NumsPlusMinus.Count() - 1; i++)
+			{
+				int count = 1;
+				//loop a result
+				foreach (string num in NumsPlusMinus.ElementAt(i).Value)
+				{
+					int ball = int.Parse(num);
+					//+-0
+					if (NumsPlusMinus.ElementAt(i + 1).Value.Contains(num))//compare current ball with next day result
+					{
+						//ball was repeated
+						res[count][0]++;
+					}
+					//+1
+					if (NumsPlusMinus.ElementAt(i + 1).Value.Contains((ball + 1).ToString()))//compare current ball with next day result
+					{
+						//ball plus 1 was played
+						res[count][1]++;
+					}
+					//+10
+					if (NumsPlusMinus.ElementAt(i + 1).Value.Contains((ball + 10).ToString()))//compare current ball with next day result
+					{
+						//ball plus 10 was played
+						res[count][2]++;
+					}
+					//-1
+					if (NumsPlusMinus.ElementAt(i + 1).Value.Contains((ball - 1).ToString()))//compare current ball with next day result
+					{
+						//ball minus 1 was played
+						res[count][3]++;
+					}
+					//-10
+					if (NumsPlusMinus.ElementAt(i + 1).Value.Contains((ball - 10).ToString()))//compare current ball with next day result
+					{
+						//ball minus 1 was played
+						res[count][4]++;
+					}
+					count++;
+				}
+
+			}
+
+			//print to list
+			listView_PlusMinus_Pred.Items.Add("Repeated");
+			listView_PlusMinus_Pred.Items.Add("+ One");
+			listView_PlusMinus_Pred.Items.Add("+Ten");
+			listView_PlusMinus_Pred.Items.Add("- One");
+			listView_PlusMinus_Pred.Items.Add("-Ten");
+
+			foreach (int[] n in res.Values)
+			{
+				//int max = n.Max();
+				int count = 0;
+				foreach (ListViewItem item in listView_PlusMinus_Pred.Items)
+				{
+					item.SubItems.Add(n[count].ToString());
+					count++;
+				}
+			}
+			//highlight highest values
+		
+
+
+			//populate all actual plus/minus predictions
 			Dictionary<string, List<string>> Numbers = new Dictionary<string, List<string>>(date_AND_combination);
 			HashSet<int> duplicate = new HashSet<int>();
 
